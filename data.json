@@ -104,7 +104,10 @@
         { "label": "Format", "value": "Full-Day / Sunset" }
       ],
       "pdfs": [
-        { "label": "Charter Routes & Price List (EN/RU)", "url": "./pdfs/catamaran-whisky-charter.pdf" }
+        {
+          "label": "Full Day Charter Brochure (EN)",
+          "url": "https://atsalov-tech.github.io/phuket-portfolio/Motor_Catamaran_Whisky___Full_Day_Charter__EN_.pdf"
+        }
       ]
     },
     {
