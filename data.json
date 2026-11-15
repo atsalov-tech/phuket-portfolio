@@ -1,0 +1,132 @@
+{
+  "items": [
+    {
+      "id": "mutti-pearl-sale",
+      "dealType": "sale",
+      "location": "Chalong / Central",
+      "title": "Mutti Family Villa Pearl",
+      "price": "THB 32,500,000",
+      "tagline": "4 Bedrooms • Private Pool • Gated Family Community",
+      "teaserVideo": "./videos/mutti-pearl-teaser.mp4",
+      "overviewVideo": "./videos/mutti-pearl-tour.mp4",
+      "poster": "./posters/mutti-pearl.jpg",
+      "summary": "Spacious family residence in a secure gated development in Chalong, minutes from BCIS international school and Chalong Pier. Designed for full-time island living and high-yield long-term tenancy.",
+      "specs": [
+        { "label": "Bedrooms", "value": "4 En-suite" },
+        { "label": "Built-up Area", "value": "420 sq.m." },
+        { "label": "Land Plot", "value": "580 sq.m." },
+        { "label": "Ownership", "value": "Freehold / Leasehold" }
+      ],
+      "pdfs": [
+        { "label": "Presentation & Specs (EN)", "url": "./pdfs/mutti-villa-pearl-en.pdf" },
+        { "label": "Презентация и планировка (RU)", "url": "./pdfs/mutti-villa-pearl-ru.pdf" }
+      ]
+    },
+    {
+      "id": "sansiri-rhea-sale",
+      "dealType": "sale",
+      "location": "Surin / Bangthao",
+      "title": "Sansiri Rhea Residence",
+      "price": "THB 14,900,000",
+      "tagline": "2 Bedrooms • Resort Facilities • Prime Bangtao District",
+      "teaserVideo": "./videos/sansiri-rhea-teaser.mp4",
+      "overviewVideo": "./videos/sansiri-rhea-tour.mp4",
+      "poster": "./posters/sansiri-rhea.jpg",
+      "summary": "Contemporary low-rise residence by tier-1 Thai developer Sansiri in the prestigious Bangtao lifestyle hub, offering strong capital appreciation and turnkey rental demand.",
+      "specs": [
+        { "label": "Bedrooms", "value": "2 Bedrooms" },
+        { "label": "Unit Area", "value": "88 sq.m." },
+        { "label": "Developer", "value": "Sansiri PCL" },
+        { "label": "Ownership", "value": "Foreign Freehold" }
+      ],
+      "pdfs": [
+        { "label": "Brochure & Floor Plans (EN/RU)", "url": "./pdfs/sansiri-rhea-brochure.pdf" }
+      ]
+    },
+    {
+      "id": "naiharn-plunge-sale",
+      "dealType": "sale",
+      "location": "Nai Harn / Rawai",
+      "title": "Plunge I Pool Villa",
+      "price": "THB 13,800,000",
+      "tagline": "2 Bedrooms • Private Pool • Quiet Nai Harn Enclave",
+      "teaserVideo": "./videos/plunge-villa-teaser.mp4",
+      "overviewVideo": "./videos/plunge-villa-tour.mp4",
+      "poster": "./posters/plunge-villa.jpg",
+      "summary": "Turnkey 2-bedroom pool villa in a peaceful residential pocket of Nai Harn, 5 minutes from Nai Harn Beach, fitness clubs, and artisan cafes.",
+      "specs": [
+        { "label": "Bedrooms", "value": "2 Bedrooms" },
+        { "label": "Villa Area", "value": "120 sq.m." },
+        { "label": "Land Plot", "value": "250 sq.m." },
+        { "label": "Ownership", "value": "Thai Company" }
+      ],
+      "pdfs": [
+        { "label": "Sales Presentation (EN / RU)", "url": "./pdfs/plunge-1-naiharn-sale.pdf" }
+      ]
+    },
+    {
+      "id": "signature-villa-rent",
+      "dealType": "rent",
+      "location": "Nai Harn / Rawai",
+      "title": "The Signature Villa Nai Harn",
+      "price": "from THB 180,000 / mo",
+      "tagline": "3 Bedrooms • Boutique 13-Villa Estate • Saltwater Pool",
+      "teaserVideo": "./videos/signature-villa-teaser.mp4",
+      "overviewVideo": "./videos/signature-villa-tour.mp4",
+      "poster": "./posters/signature-villa.jpg",
+      "summary": "Private 3-bedroom villa inside an intimate gated community of 13 residences in Nai Harn. High ceilings, tropical garden terrace, and proven comfort for seasonal or annual stays.",
+      "specs": [
+        { "label": "Bedrooms", "value": "3 En-suite" },
+        { "label": "Villa Area", "value": "260 sq.m." },
+        { "label": "Land Plot", "value": "360 sq.m." },
+        { "label": "Seasonality", "value": "Monthly / Annual Rates" }
+      ],
+      "pdfs": [
+        { "label": "Rental Brochure & Rates (EN/RU)", "url": "./pdfs/signature-villa-rent.pdf" },
+        { "label": "Sales Option Overview (PDF)", "url": "./pdfs/signature-villa-sale.pdf" }
+      ]
+    },
+    {
+      "id": "catamaran-whisky-rent",
+      "dealType": "rent",
+      "location": "Catamaran / Yachts",
+      "title": "Power Catamaran Whisky",
+      "price": "from THB 55,000 / day",
+      "tagline": "Private Day Charter • Racha, Coral & Maiton Islands",
+      "teaserVideo": "./videos/catamaran-whisky-teaser.mp4",
+      "overviewVideo": "./videos/catamaran-whisky-tour.mp4",
+      "poster": "./posters/catamaran-whisky.jpg",
+      "summary": "Full-service private day charter departing from Chalong Pier. Includes professional captain and crew, snorkeling gear, paddleboards, soft drinks, and fresh tropical fruit.",
+      "specs": [
+        { "label": "Capacity", "value": "Up to 16 Guests" },
+        { "label": "Departure", "value": "Chalong Pier" },
+        { "label": "Routes", "value": "Racha / Coral / Maiton" },
+        { "label": "Format", "value": "Full-Day / Sunset" }
+      ],
+      "pdfs": [
+        { "label": "Charter Routes & Price List (EN/RU)", "url": "./pdfs/catamaran-whisky-charter.pdf" }
+      ]
+    },
+    {
+      "id": "mutti-pearl-rent",
+      "dealType": "rent",
+      "location": "Chalong / Central",
+      "title": "Mutti Family Residence",
+      "price": "from THB 220,000 / mo",
+      "tagline": "4 Bedrooms • Close to BCIS • 24/7 Security",
+      "teaserVideo": "./videos/mutti-rent-teaser.mp4",
+      "overviewVideo": "./videos/mutti-rent-tour.mp4",
+      "poster": "./posters/mutti-pearl.jpg",
+      "summary": "Ideal family villa for long-term relocation near BCIS school in Chalong, featuring expansive living zones, private pool maintenance, and gated security.",
+      "specs": [
+        { "label": "Bedrooms", "value": "4 Bedrooms" },
+        { "label": "Built-up Area", "value": "420 sq.m." },
+        { "label": "Minimum Stay", "value": "6 – 12 Months" },
+        { "label": "Included", "value": "Pool & Garden Care" }
+      ],
+      "pdfs": [
+        { "label": "Villa Rental Presentation (PDF)", "url": "./pdfs/mutti-rental-presentation.pdf" }
+      ]
+    }
+  ]
+}
