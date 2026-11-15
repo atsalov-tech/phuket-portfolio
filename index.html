@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Phuket Private Collection — Villas & Yachts</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Шапка и переключатель Rent / Sale -->
+    <header class="app-header">
+      <div class="brand-row">
+        <span class="brand-subtitle">PHUKET PRIVATE PORTFOLIO</span>
+        <h1 class="brand-title">Villas & Yachts</h1>
+      </div>
+
+      <div class="deal-switcher" role="tablist" aria-label="Deal type">
+        <button class="deal-tab active" data-deal="rent" type="button">
+          Rent <span class="tab-count" id="count-rent">0</span>
+        </button>
+        <button class="deal-tab" data-deal="sale" type="button">
+          Sale <span class="tab-count" id="count-sale">0</span>
+        </button>
+      </div>
+
+      <!-- Горизонтальные фильтры локаций -->
+      <nav class="location-filters" id="location-filters" aria-label="Locations"></nav>
+    </header>
+
+    <!-- Лента карточек -->
+    <main class="catalog-feed" id="catalog-feed"></main>
+  </div>
+
+  <!-- Экран детального просмотра объекта -->
+  <div class="detail-overlay" id="detail-overlay" aria-hidden="true">
+    <div class="detail-sheet" id="detail-sheet">
+      <button class="close-btn" id="detail-close" type="button" aria-label="Close">✕</button>
+      <div id="detail-content"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
