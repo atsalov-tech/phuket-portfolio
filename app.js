@@ -17,10 +17,31 @@ const state = {
   items: [],
   activeDeal: "rent",      // 'rent' | 'sale'
   activeLocation: "All",
-  selectedItem: null
+  selectedItem: null,
+  pdfOpen: false,
+  activePdfUrl: "",
+  activePdfName: ""
 };
 
 let videoObserver = null;
+let activePdfRenderToken = 0;
+let activeBlobUrls = [];
+const ZOOM_LEVELS = [100, 160, 220];
+let pdfZoomIdx = 0;
+
+// Настройка воркера PDF.js через Blob для стабильной работы в iOS/Android WebView
+if (window.pdfjsLib) {
+  try {
+    const workerBlob = new Blob(
+      ['importScripts("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js");'],
+      { type: "application/javascript" }
+    );
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(workerBlob);
+  } catch (_) {
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+}
 
 // Безопасный вызов тактильного отклика Telegram
 function haptic(type = "light") {
@@ -41,7 +62,11 @@ function initTelegram() {
   if (tg.setBackgroundColor) tg.setBackgroundColor("#0e1013");
 
   tg.BackButton.onClick(() => {
-    closeDetail();
+    if (state.pdfOpen) {
+      closePdfViewer();
+    } else {
+      closeDetail();
+    }
   });
 }
 
@@ -126,7 +151,7 @@ function renderFeed() {
       <div class="media-wrap">
         <video
           class="card-video"
-          src="${item.teaserVideo}"
+          src="${item.teaserVideo || ""}"
           poster="${item.poster || ""}"
           muted
           loop
@@ -174,16 +199,18 @@ function openDetail(item) {
   const pdfsHtml = (item.pdfs || []).map((pdf, idx) => `
     <button type="button" class="btn-pdf" data-pdf-idx="${idx}">
       <span>📄 ${pdf.label}</span>
-      <span class="pdf-tag">PDF ↗</span>
+      <span class="pdf-tag">Read PDF</span>
     </button>
   `).join("");
 
+  const videoSrc = item.overviewVideo || item.teaserVideo || "";
   const content = document.getElementById("detail-content");
   content.innerHTML = `
-    <div class="detail-video-wrap">
+    <div class="detail-video-wrap" id="detail-media-wrap">
       <video
         class="detail-video"
-        src="${item.overviewVideo || item.teaserVideo}"
+        id="detail-video-el"
+        src="${videoSrc}"
         poster="${item.poster || ""}"
         autoplay
         muted
@@ -210,12 +237,25 @@ function openDetail(item) {
     </div>
   `;
 
-  // Обработчики открытия PDF в системном браузере
+  // Скрываем пустой плеер с ошибкой на iOS, если видео и постер еще не загружены
+  const detailVideoEl = document.getElementById("detail-video-el");
+  if (detailVideoEl) {
+    detailVideoEl.addEventListener("error", () => {
+      if (item.poster) {
+        detailVideoEl.removeAttribute("controls");
+      } else {
+        const wrap = document.getElementById("detail-media-wrap");
+        if (wrap) wrap.style.display = "none";
+      }
+    });
+  }
+
+  // Открываем встроенный просмотрщик PDF без выхода из витрины
   content.querySelectorAll(".btn-pdf").forEach(btn => {
     btn.addEventListener("click", () => {
       haptic("light");
       const pdfObj = item.pdfs[Number(btn.dataset.pdfIdx)];
-      openExternalPdf(pdfObj.url);
+      openPdfViewer(pdfObj.url, pdfObj.label);
     });
   });
 
@@ -234,6 +274,9 @@ function openDetail(item) {
 }
 
 function closeDetail() {
+  if (state.pdfOpen) {
+    closePdfViewer();
+  }
   haptic("light");
   const overlay = document.getElementById("detail-overlay");
   overlay.classList.remove("open");
@@ -248,13 +291,171 @@ function closeDetail() {
   setupVideoObserver();
 }
 
-// Открытие PDF в нативном браузере для удобной пересылки
-function openExternalPdf(rawUrl) {
+function clearPdfBlobs() {
+  activeBlobUrls.forEach(u => URL.revokeObjectURL(u));
+  activeBlobUrls = [];
+}
+
+// Встроенный полноэкранный просмотр PDF внутри Mini App
+async function openPdfViewer(rawUrl, titleLabel) {
   const absoluteUrl = new URL(rawUrl, window.location.href).href;
-  if (tg?.openLink) {
-    tg.openLink(absoluteUrl, { try_instant_view: false });
+  const rawName = decodeURIComponent(absoluteUrl.split("/").pop() || "Presentation.pdf");
+
+  state.pdfOpen = true;
+  state.activePdfUrl = absoluteUrl;
+  state.activePdfName = rawName.endsWith(".pdf") ? rawName : `${rawName}.pdf`;
+  pdfZoomIdx = 0;
+
+  const pdfOverlay = document.getElementById("pdf-overlay");
+  const pagesInner = document.getElementById("pdf-pages-inner");
+  const titleEl = document.getElementById("pdf-doc-title");
+  const statusEl = document.getElementById("pdf-page-status");
+  const zoomBtn = document.getElementById("pdf-zoom-btn");
+
+  titleEl.textContent = titleLabel || "Presentation";
+  statusEl.textContent = "Loading brochure...";
+  zoomBtn.textContent = "1x";
+  pagesInner.style.width = "100%";
+  clearPdfBlobs();
+  pagesInner.innerHTML = `<div class="pdf-loading-msg">Loading presentation pages...</div>`;
+
+  pdfOverlay.classList.add("open");
+  pdfOverlay.setAttribute("aria-hidden", "false");
+
+  if (tg?.disableVerticalSwipes) tg.disableVerticalSwipes();
+  if (tg?.BackButton) tg.BackButton.show();
+
+  const currentToken = ++activePdfRenderToken;
+
+  if (!window.pdfjsLib) {
+    pagesInner.innerHTML = `
+      <div class="pdf-loading-msg">
+        Preview module unavailable.<br/><br/>
+        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">Open PDF Externally</button>
+      </div>
+    `;
+    document.getElementById("pdf-fallback-open")?.addEventListener("click", saveOrOpenPdf);
+    return;
+  }
+
+  try {
+    const loadingTask = window.pdfjsLib.getDocument({
+      url: absoluteUrl,
+      cMapUrl: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/",
+      cMapPacked: true
+    });
+    const pdfDoc = await loadingTask.promise;
+    if (currentToken !== activePdfRenderToken) return;
+
+    const totalPages = pdfDoc.numPages;
+    pagesInner.innerHTML = "";
+    statusEl.textContent = `1 / ${totalPages} pages`;
+
+    // Рендерим постранично в JPEG-картинки, чтобы не превышать лимит памяти Canvas на iPhone в длинных PDF
+    for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+      if (currentToken !== activePdfRenderToken) return;
+      statusEl.textContent =
+        pageNum < totalPages
+          ? `Rendering ${pageNum} / ${totalPages}...`
+          : `${totalPages} ${totalPages === 1 ? "page" : "pages"}`;
+
+      const page = await pdfDoc.getPage(pageNum);
+      if (currentToken !== activePdfRenderToken) return;
+
+      const baseViewport = page.getViewport({ scale: 1 });
+      const targetWidth = Math.min(window.innerWidth * 2.2, 1600);
+      const renderScale = Math.max(1.5, targetWidth / baseViewport.width);
+      const viewport = page.getViewport({ scale: renderScale });
+
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d", { alpha: false });
+      canvas.width = Math.floor(viewport.width);
+      canvas.height = Math.floor(viewport.height);
+
+      await page.render({ canvasContext: ctx, viewport }).promise;
+
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.92));
+      // Освобождаем память Canvas сразу после рендера страницы
+      canvas.width = 0;
+      canvas.height = 0;
+
+      if (currentToken !== activePdfRenderToken) return;
+
+      if (blob) {
+        const blobUrl = URL.createObjectURL(blob);
+        activeBlobUrls.push(blobUrl);
+
+        const card = document.createElement("div");
+        card.className = "pdf-page-card";
+        const img = document.createElement("img");
+        img.className = "pdf-page-img";
+        img.src = blobUrl;
+        img.alt = `Page ${pageNum}`;
+        card.appendChild(img);
+        pagesInner.appendChild(card);
+      }
+    }
+  } catch (err) {
+    console.error("PDF viewer error:", err);
+    if (currentToken !== activePdfRenderToken) return;
+    statusEl.textContent = "Tap Save to view";
+    pagesInner.innerHTML = `
+      <div class="pdf-loading-msg">
+        Could not load PDF inside viewer.<br/><br/>
+        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">⬇ Download / Open PDF</button>
+      </div>
+    `;
+    document.getElementById("pdf-fallback-open")?.addEventListener("click", saveOrOpenPdf);
+  }
+}
+
+function closePdfViewer() {
+  if (!state.pdfOpen) return;
+  haptic("light");
+  state.pdfOpen = false;
+  activePdfRenderToken++;
+
+  const pdfOverlay = document.getElementById("pdf-overlay");
+  pdfOverlay.classList.remove("open");
+  pdfOverlay.setAttribute("aria-hidden", "true");
+
+  document.getElementById("pdf-pages-inner").innerHTML = "";
+  clearPdfBlobs();
+
+  if (tg?.enableVerticalSwipes) tg.enableVerticalSwipes();
+
+  // Если карточка объекта под низом открыта — оставляем кнопку Back активной для возврата в каталог
+  if (state.selectedItem && document.getElementById("detail-overlay").classList.contains("open")) {
+    if (tg?.BackButton) tg.BackButton.show();
+  } else if (tg?.BackButton) {
+    tg.BackButton.hide();
+  }
+}
+
+function togglePdfZoom() {
+  haptic("selection");
+  pdfZoomIdx = (pdfZoomIdx + 1) % ZOOM_LEVELS.length;
+  const pct = ZOOM_LEVELS[pdfZoomIdx];
+  const inner = document.getElementById("pdf-pages-inner");
+  const zoomBtn = document.getElementById("pdf-zoom-btn");
+
+  inner.style.width = `${pct}%`;
+  inner.style.maxWidth = pct === 100 ? "900px" : "none";
+  zoomBtn.textContent = pct === 100 ? "1x" : pct === 160 ? "1.6x" : "2.2x";
+}
+
+function saveOrOpenPdf() {
+  haptic("medium");
+  if (!state.activePdfUrl) return;
+  if (tg?.downloadFile) {
+    tg.downloadFile({
+      url: state.activePdfUrl,
+      file_name: state.activePdfName
+    });
+  } else if (tg?.openLink) {
+    tg.openLink(state.activePdfUrl, { try_instant_view: false });
   } else {
-    window.open(absoluteUrl, "_blank", "noopener");
+    window.open(state.activePdfUrl, "_blank", "noopener");
   }
 }
 
@@ -285,6 +486,9 @@ document.querySelectorAll(".deal-tab").forEach(tab => {
 });
 
 document.getElementById("detail-close").addEventListener("click", closeDetail);
+document.getElementById("pdf-back-btn").addEventListener("click", closePdfViewer);
+document.getElementById("pdf-zoom-btn").addEventListener("click", togglePdfZoom);
+document.getElementById("pdf-download-btn").addEventListener("click", saveOrOpenPdf);
 
 initTelegram();
 loadCatalog();
