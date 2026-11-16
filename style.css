@@ -42,7 +42,7 @@ button {
   padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
 }
 
-/* Верхняя шапка, переключатель сделок и фильтры */
+/* Верхняя шапка, переключатель языка, Instagram, Rent/Sale и фильтры */
 .app-header {
   position: sticky;
   top: 0;
@@ -54,10 +54,18 @@ button {
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.header-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
 .brand-row {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
+  min-width: 0;
 }
 
 .brand-subtitle {
@@ -71,10 +79,73 @@ button {
 
 .brand-title {
   margin: 0;
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-main);
+  line-height: 1.15;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.ig-pill-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.ig-pill-btn:active {
+  border-color: var(--gold-border);
+  background: var(--gold-soft);
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.lang-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: 32px;
+  height: 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: background 0.18s ease, opacity 0.18s ease;
+}
+
+.lang-btn.active {
+  background: var(--bg-elevated);
+  opacity: 1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .deal-switcher {
