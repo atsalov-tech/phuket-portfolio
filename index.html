@@ -1,181 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury 3-Bedroom Pool Villa in Chalong</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background: #0f172a; color: #f8fafc; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        .container { width: 100%; max-width: 430px; background: #1e293b; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; position: relative; }
-        
-        /* Language Switcher */
-        .lang-bar { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px 0 16px; background: #1e293b; z-index: 20; }
-        .lang-btn { background: #334155; border: 2px solid transparent; border-radius: 20px; padding: 4px 10px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 13px; color: #94a3b8; transition: all 0.2s; }
-        .lang-btn.active { background: #0ea5e9; color: white; border-color: #38bdf8; font-weight: 600; }
-
-        /* Slider Styles */
-        .slider-container { position: relative; width: 100%; height: 320px; background: #000; overflow: hidden; margin-top: 8px; }
-        .slides { display: flex; transition: transform 0.4s ease-in-out; height: 100%; }
-        .slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #111; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 10; transition: background 0.3s; }
-        .nav-btn:hover { background: rgba(0,0,0,0.8); }
-        .prev { left: 15px; }
-        .next { right: 15px; }
-        
-        .dots { position: absolute; bottom: 15px; width: 100%; display: flex; justify-content: center; gap: 6px; z-index: 10; overflow-x: auto; padding: 0 10px; }
-        .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: background 0.3s; flex-shrink: 0; }
-        .dot.active { background: #38bdf8; width: 20px; border-radius: 4px; }
-
-        /* Content Styles */
-        .content { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
-        .badge { display: inline-block; background: #0ea5e9; color: white; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; align-self: flex-start; text-transform: uppercase; letter-spacing: 0.5px; }
-        h1 { font-size: 20px; font-weight: 700; color: #fff; line-height: 1.3; }
-        .price { font-size: 22px; font-weight: 800; color: #38bdf8; }
-        .price span { font-size: 13px; font-weight: 400; color: #94a3b8; }
-        
-        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 2px; }
-        .feature-card { background: #334155; padding: 10px 12px; border-radius: 12px; display: flex; flex-direction: column; gap: 2px; }
-        .feature-label { font-size: 11px; color: #94a3b8; }
-        .feature-value { font-size: 14px; font-weight: 600; color: #fff; }
-
-        .section-title { font-size: 14px; font-weight: 700; color: #38bdf8; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .description { font-size: 13px; color: #cbd5e1; line-height: 1.5; }
-        
-        .distances-list { display: grid; grid-template-columns: 1fr; gap: 6px; font-size: 13px; color: #cbd5e1; background: #334155; padding: 12px; border-radius: 12px; }
-        .distances-list div { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px; }
-        .distances-list div:last-child { border-bottom: none; padding-bottom: 0; }
-        .distances-list span { color: #38bdf8; font-weight: 600; }
-
-        .contacts-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-        .contact-btn { display: flex; align-items: center; justify-content: center; gap: 8px; color: white; text-decoration: none; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: opacity 0.2s; }
-        .contact-btn:active { opacity: 0.8; }
-        .whatsapp { background: #25D366; }
-        .telegram { background: #229ED9; }
-        .viber { background: #7360f2; }
-        
-        .website-link { text-align: center; margin-top: 8px; font-size: 13px; color: #38bdf8; text-decoration: none; }
-        
-        /* Language visibility controlled via explicit classes */
-        .lang-ru { display: none; }
-        .lang-en { display: block; }
-        
-        html.ru .lang-ru, body.ru .lang-ru { display: block !important; }
-        html.ru .lang-en, body.ru .lang-en { display: none !important; }
-        html.en .lang-en, body.en .lang-en { display: block !important; }
-        html.en .lang-ru, body.en .lang-ru { display: none !important; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=4.0, viewport-fit=cover" />
+  <title>Phuket Private Collection — Villas & Yachts</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Phuket Villas" />
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    .pdf-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #0e1013;
+      display: none;
+      flex-direction: column;
+    }
+    .pdf-overlay.open {
+      display: flex;
+    }
+    .pdf-topbar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px;
+      background: rgba(14, 16, 19, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .pdf-nav-btn {
+      appearance: none;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      background: rgba(212, 175, 55, 0.14);
+      color: #f3d58d;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .pdf-nav-btn.secondary {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+    .pdf-topbar-info {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+    .pdf-topbar-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pdf-topbar-status {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 2px;
+    }
+    .pdf-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pdf-pages-container {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 12px 10px calc(28px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .pdf-pages-inner {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: width 0.18s ease;
+    }
+    .pdf-page-card {
+      width: 100%;
+      background: #171a20;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+    }
+    .pdf-page-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .pdf-loading-msg {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+      text-align: center;
+      padding: 40px 20px;
+    }
+  </style>
 </head>
-<body class="en">
-    <div class="container">
-        <!-- Language Switcher Bar with Flags -->
-        <div class="lang-bar">
-            <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">
-                <span>🇬🇧</span> EN
-            </button>
-            <button class="lang-btn" id="btn-ru" onclick="setLanguage('ru')">
-                <span>🇷🇺</span> RU
-            </button>
-        </div>
+<body>
+  <div class="app-container">
+    <!-- Шапка и переключатель Rent / Sale -->
+    <header class="app-header">
+      <div class="brand-row">
+        <span class="brand-subtitle">PHUKET PRIVATE PORTFOLIO</span>
+        <h1 class="brand-title">Villas & Yachts</h1>
+      </div>
 
-        <!-- Photo Slider Gallery -->
-        <div class="slider-container" id="slider">
-            <div class="slides" id="slides">
-                <div class="slide"><img src="IMG_6190.heic" alt="Pool View" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80'"></div>
-                <div class="slide"><img src="IMG_6169.heic" alt="Living Room & Kitchen" onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80'"></div>
-                <div class="slide"><img src="IMG_1642.heic" alt="Master Bedroom" onerror="this.src='https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80'"></div>
-                <div class="slide"><img src="IMG_6186.heic" alt="Swimming Pool" onerror="this.src='https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'"></div>
-                <div class="slide"><img src="IMG_1644.heic" alt="Bedroom Interior" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80'"></div>
-                <div class="slide"><img src="IMG_6191.heic" alt="Poolside View" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'"></div>
-                <div class="slide"><img src="IMG_6192.heic" alt="Pool & Gazebo" onerror="this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80'"></div>
-            </div>
-            <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
-            <div class="dots" id="dots">
-                <span class="dot active" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-                <span class="dot" onclick="currentSlide(4)"></span>
-                <span class="dot" onclick="currentSlide(5)"></span>
-                <span class="dot" onclick="currentSlide(6)"></span>
-            </div>
-        </div>
+      <div class="deal-switcher" role="tablist" aria-label="Deal type">
+        <button class="deal-tab active" data-deal="rent" type="button">
+          Rent <span class="tab-count" id="count-rent">0</span>
+        </button>
+        <button class="deal-tab" data-deal="sale" type="button">
+          Sale <span class="tab-count" id="count-sale">0</span>
+        </button>
+      </div>
 
-        <div class="content">
-            <div class="badge">
-                <span class="lang-en">For Rent • Chalong, Phuket</span>
-                <span class="lang-ru">Аренда • Чалонг, Пхукет</span>
-            </div>
-            
-            <h1>
-                <span class="lang-en">Luxury 3-Bedroom Pool Villa</span>
-                <span class="lang-ru">Роскошная вилла с 3 спальнями и бассейном</span>
-            </h1>
-            
-            <div class="price">
-                110,000 THB 
-                <span>
-                    <span class="lang-en">/ month (1-year contract)</span>
-                    <span class="lang-ru">/ месяц (контракт на 1 год)</span>
-                </span>
-            </div>
+      <!-- Горизонтальные фильтры локаций -->
+      <nav class="location-filters" id="location-filters" aria-label="Locations"></nav>
+    </header>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-label">
-                        <span class="lang-en">Living Area (Indoor)</span>
-                        <span class="lang-ru">Площадь (жилая)</span>
-                    </span>
-                    <span class="feature-value">200 sq.m. / кв.м</span>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-label">
-                        <span class="lang-en">Plot Area (Land)</span>
-                        <span class="lang-ru">Участок виллы</span>
-                    </span>
-                    <span class="feature-value">400 sq.m. / кв.м</span>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-label">
-                        <span class="lang-en">Bedrooms / Baths</span>
-                        <span class="lang-ru">Спальни / Санузлы</span>
-                    </span>
-                    <span class="feature-value">
-                        <span class="lang-en">3 Beds • 3 En-suites</span>
-                        <span class="lang-ru">3 спальни • 3 санузла</span>
-                    </span>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-label">
-                        <span class="lang-en">Private Pool</span>
-                        <span class="lang-ru">Бассейн</span>
-                    </span>
-                    <span class="feature-value">8m x 4m (Depth 1.8m)</span>
-                </div>
-            </div>
+    <!-- Лента карточек -->
+    <main class="catalog-feed" id="catalog-feed"></main>
+  </div>
 
-            <div class="section-title">
-                <span class="lang-en">About the Villa</span>
-                <span class="lang-ru">О вилле</span>
-            </div>
-            <p class="description">
-                <span class="lang-en">Exquisite pool villa with 200 sq.m. of air-conditioned indoor living space on a 400 sq.m. plot. Features 3 spacious bedrooms, each with its own private en-suite bathroom. Fully equipped modern kitchen, private swimming pool (8x4m, depth 1.8m), gazebo, and tropical garden. Ideal for 6-7 guests.</span>
-                <span class="lang-ru">Великолепная вилла: 200 кв.м. жилой зоны с кондиционерами на участке 400 кв.м. 3 просторные спальни, в каждой свой санузел. Полностью оборудованная современная кухня, частный бассейн 8х4 м (глубина 1.80 м), беседка и тропический сад. Идеально для 6-7 гостей.</span>
-            </p>
+  <!-- Экран детального просмотра объекта -->
+  <div class="detail-overlay" id="detail-overlay" aria-hidden="true">
+    <div class="detail-sheet" id="detail-sheet">
+      <button class="close-btn" id="detail-close" type="button" aria-label="Close">✕</button>
+      <div id="detail-content"></div>
+    </div>
+  </div>
 
-            <div class="section-title">
-                <span class="lang-en">Location & Distances</span>
-                <span class="lang-ru">Расположение и расстояния</span>
-            </div>
-            <div class="distances-list">
-                <div>
-                    <span>
-                        <span class="lang-en">BCIS International School</span>
-                        <span class="lang-ru">Школа BCIS</span>
-                    </span> 
-                    <span><span class="lang-en">5 mins</span><span class="lang-ru">5 мин</span></span>
-                </div>
-                
+  <!-- Встроенный экран чтения PDF с фиксированной кнопкой возврата -->
+  <div class="pdf-overlay" id="pdf-overlay" aria-hidden="true">
+    <div class="pdf-topbar">
+      <button class="pdf-nav-btn" id="pdf-back-btn" type="button">← Back</button>
+      <div class="pdf-topbar-info">
+        <div class="pdf-topbar-title" id="pdf-doc-title">Brochure</div>
+        <div class="pdf-topbar-status" id="pdf-page-status">Loading PDF...</div>
+      </div>
+      <div class="pdf-topbar-actions">
+        <button class="pdf-nav-btn secondary" id="pdf-zoom-btn" type="button" aria-label="Zoom">1x</button>
+        <button class="pdf-nav-btn secondary" id="pdf-download-btn" type="button">⬇ Save</button>
+      </div>
+    </div>
+    <div class="pdf-pages-container" id="pdf-pages-container">
+      <div class="pdf-pages-inner" id="pdf-pages-inner"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
