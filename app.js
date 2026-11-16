@@ -2,7 +2,7 @@ const tg = window.Telegram?.WebApp;
 
 const CONFIG = {
   // Рабочий Telegram username без символа @
-  MANAGER_TELEGRAM: "prometheus_privat",
+  MANAGER_TELEGRAM: "FAMILIAHOLIDAY",
   LOCATIONS: [
     "All",
     "Nai Harn / Rawai",
