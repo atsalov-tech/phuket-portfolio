@@ -35,6 +35,9 @@ const I18N = {
     pdfFallback: "⬇ Download / Open PDF",
     pdfNoModule: "Preview module unavailable.",
     pdfOpenExt: "Open PDF Externally",
+    igFooterTitle: "Instagram • @familiaholiday",
+    igFooterSub: "Videos, stories & daily Phuket updates",
+    igFooterCta: "Open ↗",
     locations: {
       "All": "All",
       "Nai Harn / Rawai": "Nai Harn / Rawai",
@@ -63,6 +66,9 @@ const I18N = {
     pdfFallback: "⬇ Скачать / Открыть PDF",
     pdfNoModule: "Модуль просмотра недоступен.",
     pdfOpenExt: "Открыть PDF в браузере",
+    igFooterTitle: "Наш Instagram • @familiaholiday",
+    igFooterSub: "Видеообзоры, сторис и новинки Пхукета",
+    igFooterCta: "Открыть ↗",
     locations: {
       "All": "Все",
       "Nai Harn / Rawai": "Най Харн / Раваи",
@@ -164,6 +170,9 @@ function applyLanguageUI() {
   document.getElementById("label-sale").textContent = t("sale");
   document.getElementById("pdf-back-btn").textContent = t("pdfBack");
   document.getElementById("pdf-download-btn").textContent = t("pdfSave");
+  document.getElementById("ig-footer-title").textContent = t("igFooterTitle");
+  document.getElementById("ig-footer-sub").textContent = t("igFooterSub");
+  document.getElementById("ig-footer-cta").textContent = t("igFooterCta");
 
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === state.lang);
@@ -629,6 +638,7 @@ document.querySelectorAll(".lang-btn").forEach(btn => {
 });
 
 document.getElementById("btn-instagram").addEventListener("click", openInstagram);
+document.getElementById("ig-footer-card").addEventListener("click", openInstagram);
 document.getElementById("detail-close").addEventListener("click", closeDetail);
 document.getElementById("pdf-back-btn").addEventListener("click", closePdfViewer);
 document.getElementById("pdf-zoom-btn").addEventListener("click", togglePdfZoom);
