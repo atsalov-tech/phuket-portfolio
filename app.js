@@ -3,6 +3,8 @@ const tg = window.Telegram?.WebApp;
 const CONFIG = {
   // Рабочий Telegram username без символа @
   MANAGER_TELEGRAM: "FAMILIAHOLIDAY",
+  // Ссылка на ваш профиль Instagram
+  INSTAGRAM_URL: "https://www.instagram.com/familiaholiday/",
   LOCATIONS: [
     "All",
     "Nai Harn / Rawai",
@@ -13,7 +15,76 @@ const CONFIG = {
   ]
 };
 
+const I18N = {
+  en: {
+    brandSubtitle: "PHUKET PRIVATE PORTFOLIO",
+    brandTitle: "Villas & Yachts",
+    rent: "Rent",
+    sale: "Sale",
+    dealRent: "RENT",
+    dealSale: "SALE",
+    empty: "No listings in this category right now.",
+    loadError: "Unable to load catalog data. Please try again.",
+    readPdf: "Read PDF",
+    contactBtn: "Request Details in Telegram",
+    pdfBack: "← Back",
+    pdfSave: "⬇ Save",
+    pdfLoading: "Loading brochure...",
+    pdfLoadingPages: "Loading presentation pages...",
+    pdfError: "Could not load PDF inside viewer.",
+    pdfFallback: "⬇ Download / Open PDF",
+    pdfNoModule: "Preview module unavailable.",
+    pdfOpenExt: "Open PDF Externally",
+    locations: {
+      "All": "All",
+      "Nai Harn / Rawai": "Nai Harn / Rawai",
+      "Chalong / Central": "Chalong / Central",
+      "Surin / Bangthao": "Surin / Bangthao",
+      "Nai Yang": "Nai Yang",
+      "Catamaran / Yachts": "Catamaran / Yachts"
+    }
+  },
+  ru: {
+    brandSubtitle: "ЧАСТНАЯ КОЛЛЕКЦИЯ ПХУКЕТ",
+    brandTitle: "Виллы и яхты",
+    rent: "Аренда",
+    sale: "Продажа",
+    dealRent: "АРЕНДА",
+    dealSale: "ПРОДАЖА",
+    empty: "В этой категории пока нет объектов.",
+    loadError: "Не удалось загрузить каталог. Попробуйте еще раз.",
+    readPdf: "Открыть PDF",
+    contactBtn: "Уточнить детали в Telegram",
+    pdfBack: "← Назад",
+    pdfSave: "⬇ Скачать",
+    pdfLoading: "Загрузка брошюры...",
+    pdfLoadingPages: "Загрузка страниц презентации...",
+    pdfError: "Не удалось открыть PDF во встроенном окне.",
+    pdfFallback: "⬇ Скачать / Открыть PDF",
+    pdfNoModule: "Модуль просмотра недоступен.",
+    pdfOpenExt: "Открыть PDF в браузере",
+    locations: {
+      "All": "Все",
+      "Nai Harn / Rawai": "Най Харн / Раваи",
+      "Chalong / Central": "Чалонг / Центр",
+      "Surin / Bangthao": "Сурин / Бангтао",
+      "Nai Yang": "Най Янг",
+      "Catamaran / Yachts": "Катамараны / Яхты"
+    }
+  }
+};
+
+function detectInitialLang() {
+  try {
+    const saved = localStorage.getItem("phuket_lang");
+    if (saved === "ru" || saved === "en") return saved;
+  } catch (_) {}
+  const tgLang = tg?.initDataUnsafe?.user?.language_code || navigator.language || "en";
+  return tgLang.toLowerCase().startsWith("ru") ? "ru" : "en";
+}
+
 const state = {
+  lang: detectInitialLang(),
   items: [],
   activeDeal: "rent",      // 'rent' | 'sale'
   activeLocation: "All",
@@ -28,6 +99,21 @@ let activePdfRenderToken = 0;
 let activeBlobUrls = [];
 const ZOOM_LEVELS = [100, 160, 220];
 let pdfZoomIdx = 0;
+
+function t(key) {
+  return I18N[state.lang]?.[key] ?? I18N.en[key] ?? key;
+}
+
+function tLoc(loc) {
+  return I18N[state.lang]?.locations?.[loc] ?? loc;
+}
+
+function locField(item, field) {
+  if (state.lang === "ru" && item[`${field}_ru`]) {
+    return item[`${field}_ru`];
+  }
+  return item[field];
+}
 
 // Настройка воркера PDF.js через Blob для стабильной работы в iOS/Android WebView
 if (window.pdfjsLib) {
@@ -70,6 +156,37 @@ function initTelegram() {
   });
 }
 
+function applyLanguageUI() {
+  document.documentElement.lang = state.lang;
+  document.getElementById("brand-subtitle").textContent = t("brandSubtitle");
+  document.getElementById("brand-title").textContent = t("brandTitle");
+  document.getElementById("label-rent").textContent = t("rent");
+  document.getElementById("label-sale").textContent = t("sale");
+  document.getElementById("pdf-back-btn").textContent = t("pdfBack");
+  document.getElementById("pdf-download-btn").textContent = t("pdfSave");
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === state.lang);
+  });
+
+  renderFilters();
+  renderFeed();
+
+  if (state.selectedItem && document.getElementById("detail-overlay").classList.contains("open")) {
+    openDetail(state.selectedItem, true);
+  }
+}
+
+function setLanguage(lang) {
+  if (state.lang === lang) return;
+  haptic("selection");
+  state.lang = lang;
+  try {
+    localStorage.setItem("phuket_lang", lang);
+  } catch (_) {}
+  applyLanguageUI();
+}
+
 // Загрузка базы объектов
 async function loadCatalog() {
   try {
@@ -77,11 +194,10 @@ async function loadCatalog() {
     const data = await res.json();
     state.items = data.items || [];
     updateDealCounts();
-    renderFilters();
-    renderFeed();
+    applyLanguageUI();
   } catch (err) {
     document.getElementById("catalog-feed").innerHTML =
-      `<div class="empty-state">Unable to load catalog data. Please try again.</div>`;
+      `<div class="empty-state">${t("loadError")}</div>`;
     console.error("Catalog load error:", err);
   }
 }
@@ -100,7 +216,7 @@ function renderFilters() {
       type="button"
       class="filter-chip ${state.activeLocation === loc ? "active" : ""}"
       data-location="${loc}"
-    >${loc}</button>
+    >${tLoc(loc)}</button>
   `).join("");
 
   container.querySelectorAll(".filter-chip").forEach(btn => {
@@ -142,7 +258,7 @@ function renderFeed() {
   });
 
   if (!filtered.length) {
-    feed.innerHTML = `<div class="empty-state">No listings in this category right now.</div>`;
+    feed.innerHTML = `<div class="empty-state">${t("empty")}</div>`;
     return;
   }
 
@@ -159,14 +275,14 @@ function renderFeed() {
           webkit-playsinline
           preload="metadata"
         ></video>
-        <span class="location-badge">${item.location}</span>
+        <span class="location-badge">${tLoc(item.location)}</span>
       </div>
       <div class="card-body">
         <div class="card-header-row">
-          <h2 class="card-title">${item.title}</h2>
-          <span class="card-price">${item.price}</span>
+          <h2 class="card-title">${locField(item, "title")}</h2>
+          <span class="card-price">${locField(item, "price")}</span>
         </div>
-        <p class="card-tagline">${item.tagline}</p>
+        <p class="card-tagline">${locField(item, "tagline")}</p>
       </div>
     </article>
   `).join("");
@@ -182,14 +298,15 @@ function renderFeed() {
 }
 
 // Экран детальной карточки
-function openDetail(item) {
-  haptic("medium");
+function openDetail(item, skipHaptic = false) {
+  if (!skipHaptic) haptic("medium");
   state.selectedItem = item;
 
   // Ставим фоновую ленту на паузу
   document.querySelectorAll(".card-video").forEach(v => v.pause());
 
-  const specsHtml = (item.specs || []).map(spec => `
+  const specsList = (state.lang === "ru" && item.specs_ru) ? item.specs_ru : (item.specs || []);
+  const specsHtml = specsList.map(spec => `
     <div class="spec-box">
       <span class="spec-label">${spec.label}</span>
       <span class="spec-value">${spec.value}</span>
@@ -198,12 +315,13 @@ function openDetail(item) {
 
   const pdfsHtml = (item.pdfs || []).map((pdf, idx) => `
     <button type="button" class="btn-pdf" data-pdf-idx="${idx}">
-      <span>📄 ${pdf.label}</span>
-      <span class="pdf-tag">Read PDF</span>
+      <span>📄 ${(state.lang === "ru" && pdf.label_ru) ? pdf.label_ru : pdf.label}</span>
+      <span class="pdf-tag">${t("readPdf")}</span>
     </button>
   `).join("");
 
   const videoSrc = item.overviewVideo || item.teaserVideo || "";
+  const dealText = item.dealType === "rent" ? t("dealRent") : t("dealSale");
   const content = document.getElementById("detail-content");
   content.innerHTML = `
     <div class="detail-video-wrap" id="detail-media-wrap">
@@ -221,17 +339,17 @@ function openDetail(item) {
       ></video>
     </div>
     <div class="detail-body">
-      <div class="detail-location">${item.location} • ${item.dealType.toUpperCase()}</div>
-      <h2 class="detail-title">${item.title}</h2>
-      <div class="detail-price">${item.price}</div>
-      <p class="detail-summary">${item.summary}</p>
+      <div class="detail-location">${tLoc(item.location)} • ${dealText}</div>
+      <h2 class="detail-title">${locField(item, "title")}</h2>
+      <div class="detail-price">${locField(item, "price")}</div>
+      <p class="detail-summary">${locField(item, "summary")}</p>
 
       <div class="specs-grid">${specsHtml}</div>
 
       <div class="actions-stack">
         ${pdfsHtml}
         <button type="button" class="btn-contact" id="btn-direct-tg">
-          Request Details in Telegram
+          ${t("contactBtn")}
         </button>
       </div>
     </div>
@@ -255,7 +373,8 @@ function openDetail(item) {
     btn.addEventListener("click", () => {
       haptic("light");
       const pdfObj = item.pdfs[Number(btn.dataset.pdfIdx)];
-      openPdfViewer(pdfObj.url, pdfObj.label);
+      const label = (state.lang === "ru" && pdfObj.label_ru) ? pdfObj.label_ru : pdfObj.label;
+      openPdfViewer(pdfObj.url, label);
     });
   });
 
@@ -313,11 +432,11 @@ async function openPdfViewer(rawUrl, titleLabel) {
   const zoomBtn = document.getElementById("pdf-zoom-btn");
 
   titleEl.textContent = titleLabel || "Presentation";
-  statusEl.textContent = "Loading brochure...";
+  statusEl.textContent = t("pdfLoading");
   zoomBtn.textContent = "1x";
   pagesInner.style.width = "100%";
   clearPdfBlobs();
-  pagesInner.innerHTML = `<div class="pdf-loading-msg">Loading presentation pages...</div>`;
+  pagesInner.innerHTML = `<div class="pdf-loading-msg">${t("pdfLoadingPages")}</div>`;
 
   pdfOverlay.classList.add("open");
   pdfOverlay.setAttribute("aria-hidden", "false");
@@ -330,8 +449,8 @@ async function openPdfViewer(rawUrl, titleLabel) {
   if (!window.pdfjsLib) {
     pagesInner.innerHTML = `
       <div class="pdf-loading-msg">
-        Preview module unavailable.<br/><br/>
-        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">Open PDF Externally</button>
+        ${t("pdfNoModule")}<br/><br/>
+        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">${t("pdfOpenExt")}</button>
       </div>
     `;
     document.getElementById("pdf-fallback-open")?.addEventListener("click", saveOrOpenPdf);
@@ -349,15 +468,15 @@ async function openPdfViewer(rawUrl, titleLabel) {
 
     const totalPages = pdfDoc.numPages;
     pagesInner.innerHTML = "";
-    statusEl.textContent = `1 / ${totalPages} pages`;
+    statusEl.textContent = `1 / ${totalPages}`;
 
     // Рендерим постранично в JPEG-картинки, чтобы не превышать лимит памяти Canvas на iPhone в длинных PDF
     for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
       if (currentToken !== activePdfRenderToken) return;
       statusEl.textContent =
         pageNum < totalPages
-          ? `Rendering ${pageNum} / ${totalPages}...`
-          : `${totalPages} ${totalPages === 1 ? "page" : "pages"}`;
+          ? `${pageNum} / ${totalPages}...`
+          : (state.lang === "ru" ? `${totalPages} стр.` : `${totalPages} ${totalPages === 1 ? "page" : "pages"}`);
 
       const page = await pdfDoc.getPage(pageNum);
       if (currentToken !== activePdfRenderToken) return;
@@ -398,11 +517,11 @@ async function openPdfViewer(rawUrl, titleLabel) {
   } catch (err) {
     console.error("PDF viewer error:", err);
     if (currentToken !== activePdfRenderToken) return;
-    statusEl.textContent = "Tap Save to view";
+    statusEl.textContent = state.lang === "ru" ? "Нажмите Скачать" : "Tap Save to view";
     pagesInner.innerHTML = `
       <div class="pdf-loading-msg">
-        Could not load PDF inside viewer.<br/><br/>
-        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">⬇ Download / Open PDF</button>
+        ${t("pdfError")}<br/><br/>
+        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">${t("pdfFallback")}</button>
       </div>
     `;
     document.getElementById("pdf-fallback-open")?.addEventListener("click", saveOrOpenPdf);
@@ -459,10 +578,30 @@ function saveOrOpenPdf() {
   }
 }
 
+function openInstagram() {
+  haptic("light");
+  if (tg?.openLink) {
+    tg.openLink(CONFIG.INSTAGRAM_URL, { try_instant_view: false });
+  } else {
+    window.open(CONFIG.INSTAGRAM_URL, "_blank", "noopener");
+  }
+}
+
 // Открытие чата в Telegram с готовым текстом запроса
 function contactManager(item) {
-  const dealLabel = item.dealType === "rent" ? "Rent / Charter" : "Purchase";
-  const message = `Hello! I'm interested in "${item.title}" (${dealLabel}, ${item.location} — ${item.price}). Please share availability and details.`;
+  const title = locField(item, "title");
+  const price = locField(item, "price");
+  const loc = tLoc(item.location);
+
+  let message;
+  if (state.lang === "ru") {
+    const dealLabel = item.dealType === "rent" ? "Аренда / Чартер" : "Покупка";
+    message = `Здравствуйте! Интересует объект "${title}" (${dealLabel}, ${loc} — ${price}). Подскажите, пожалуйста, доступность и детали.`;
+  } else {
+    const dealLabel = item.dealType === "rent" ? "Rent / Charter" : "Purchase";
+    message = `Hello! I'm interested in "${title}" (${dealLabel}, ${loc} — ${price}). Please share availability and details.`;
+  }
+
   const tgUrl = `https://t.me/${CONFIG.MANAGER_TELEGRAM}?text=${encodeURIComponent(message)}`;
 
   if (tg?.openTelegramLink) {
@@ -485,6 +624,11 @@ document.querySelectorAll(".deal-tab").forEach(tab => {
   });
 });
 
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+});
+
+document.getElementById("btn-instagram").addEventListener("click", openInstagram);
 document.getElementById("detail-close").addEventListener("click", closeDetail);
 document.getElementById("pdf-back-btn").addEventListener("click", closePdfViewer);
 document.getElementById("pdf-zoom-btn").addEventListener("click", togglePdfZoom);
