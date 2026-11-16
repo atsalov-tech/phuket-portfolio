@@ -5,21 +5,31 @@
       "dealType": "sale",
       "location": "Chalong / Central",
       "title": "Mutti Family Villa Pearl",
+      "title_ru": "Mutti Family Villa Pearl",
       "price": "THB 32,500,000",
+      "price_ru": "32 500 000 THB",
       "tagline": "4 Bedrooms • Private Pool • Gated Family Community",
+      "tagline_ru": "4 спальни • Свой бассейн • Закрытый поселок",
       "teaserVideo": "./videos/mutti-pearl-teaser.mp4",
       "overviewVideo": "./videos/mutti-pearl-tour.mp4",
       "poster": "./posters/mutti-pearl.jpg",
       "summary": "Spacious family residence in a secure gated development in Chalong, minutes from BCIS international school and Chalong Pier. Designed for full-time island living and high-yield long-term tenancy.",
+      "summary_ru": "Просторная семейная резиденция в охраняемом комплексе в Чалонге, в нескольких минутах от школы BCIS и пирса Чалонг. Подходит для круглогодичной жизни на острове и стабильной долгосрочной аренды.",
       "specs": [
         { "label": "Bedrooms", "value": "4 En-suite" },
         { "label": "Built-up Area", "value": "420 sq.m." },
         { "label": "Land Plot", "value": "580 sq.m." },
         { "label": "Ownership", "value": "Freehold / Leasehold" }
       ],
+      "specs_ru": [
+        { "label": "Спальни", "value": "4 со своим с/у" },
+        { "label": "Площадь виллы", "value": "420 кв.м" },
+        { "label": "Участок", "value": "580 кв.м" },
+        { "label": "Форма владения", "value": "Freehold / Leasehold" }
+      ],
       "pdfs": [
-        { "label": "Presentation & Specs (EN)", "url": "./pdfs/mutti-villa-pearl-en.pdf" },
-        { "label": "Презентация и планировка (RU)", "url": "./pdfs/mutti-villa-pearl-ru.pdf" }
+        { "label": "Presentation & Specs (EN)", "label_ru": "Презентация и планы (EN)", "url": "./pdfs/mutti-villa-pearl-en.pdf" },
+        { "label": "Презентация и планировка (RU)", "label_ru": "Презентация и планировка (RU)", "url": "./pdfs/mutti-villa-pearl-ru.pdf" }
       ]
     },
     {
@@ -27,20 +37,30 @@
       "dealType": "sale",
       "location": "Surin / Bangthao",
       "title": "Sansiri Rhea Residence",
+      "title_ru": "Резиденция Sansiri Rhea",
       "price": "THB 14,900,000",
+      "price_ru": "14 900 000 THB",
       "tagline": "2 Bedrooms • Resort Facilities • Prime Bangtao District",
+      "tagline_ru": "2 спальни • Курортная инфраструктура • Бангтао",
       "teaserVideo": "./videos/sansiri-rhea-teaser.mp4",
       "overviewVideo": "./videos/sansiri-rhea-tour.mp4",
       "poster": "./posters/sansiri-rhea.jpg",
       "summary": "Contemporary low-rise residence by tier-1 Thai developer Sansiri in the prestigious Bangtao lifestyle hub, offering strong capital appreciation and turnkey rental demand.",
+      "summary_ru": "Современная малоэтажная резиденция от ведущего застройщика Таиланда Sansiri в престижном районе Бангтао с высоким потенциалом роста капитала и стабильным арендным спросом.",
       "specs": [
         { "label": "Bedrooms", "value": "2 Bedrooms" },
         { "label": "Unit Area", "value": "88 sq.m." },
         { "label": "Developer", "value": "Sansiri PCL" },
         { "label": "Ownership", "value": "Foreign Freehold" }
       ],
+      "specs_ru": [
+        { "label": "Спальни", "value": "2 спальни" },
+        { "label": "Площадь", "value": "88 кв.м" },
+        { "label": "Застройщик", "value": "Sansiri PCL" },
+        { "label": "Оформление", "value": "Foreign Freehold" }
+      ],
       "pdfs": [
-        { "label": "Brochure & Floor Plans (EN/RU)", "url": "./pdfs/sansiri-rhea-brochure.pdf" }
+        { "label": "Brochure & Floor Plans (EN/RU)", "label_ru": "Брошюра и планировки (EN/RU)", "url": "./pdfs/sansiri-rhea-brochure.pdf" }
       ]
     },
     {
@@ -48,20 +68,30 @@
       "dealType": "sale",
       "location": "Nai Harn / Rawai",
       "title": "Plunge I Pool Villa",
+      "title_ru": "Вилла с бассейном Plunge I",
       "price": "THB 13,800,000",
+      "price_ru": "13 800 000 THB",
       "tagline": "2 Bedrooms • Private Pool • Quiet Nai Harn Enclave",
+      "tagline_ru": "2 спальни • Частный бассейн • Тихий район Най Харн",
       "teaserVideo": "./videos/plunge-villa-teaser.mp4",
       "overviewVideo": "./videos/plunge-villa-tour.mp4",
       "poster": "./posters/plunge-villa.jpg",
       "summary": "Turnkey 2-bedroom pool villa in a peaceful residential pocket of Nai Harn, 5 minutes from Nai Harn Beach, fitness clubs, and artisan cafes.",
+      "summary_ru": "Готовая вилла с 2 спальнями и частным бассейном в тихой жилой части Най Харна — в 5 минутах от пляжа Най Харн, спортклубов и кафе.",
       "specs": [
         { "label": "Bedrooms", "value": "2 Bedrooms" },
         { "label": "Villa Area", "value": "120 sq.m." },
         { "label": "Land Plot", "value": "250 sq.m." },
         { "label": "Ownership", "value": "Thai Company" }
       ],
+      "specs_ru": [
+        { "label": "Спальни", "value": "2 спальни" },
+        { "label": "Площадь виллы", "value": "120 кв.м" },
+        { "label": "Участок", "value": "250 кв.м" },
+        { "label": "Оформление", "value": "Тайская компания" }
+      ],
       "pdfs": [
-        { "label": "Sales Presentation (EN / RU)", "url": "./pdfs/plunge-1-naiharn-sale.pdf" }
+        { "label": "Sales Presentation (EN / RU)", "label_ru": "Презентация на продажу (EN / RU)", "url": "./pdfs/plunge-1-naiharn-sale.pdf" }
       ]
     },
     {
@@ -69,21 +99,31 @@
       "dealType": "rent",
       "location": "Nai Harn / Rawai",
       "title": "The Signature Villa Nai Harn",
+      "title_ru": "The Signature Villa Най Харн",
       "price": "from THB 180,000 / mo",
+      "price_ru": "от 180 000 THB / мес",
       "tagline": "3 Bedrooms • Boutique 13-Villa Estate • Saltwater Pool",
+      "tagline_ru": "3 спальни • Камерный комплекс из 13 вилл • Соленый бассейн",
       "teaserVideo": "./videos/signature-villa-teaser.mp4",
       "overviewVideo": "./videos/signature-villa-tour.mp4",
       "poster": "./posters/signature-villa.jpg",
       "summary": "Private 3-bedroom villa inside an intimate gated community of 13 residences in Nai Harn. High ceilings, tropical garden terrace, and proven comfort for seasonal or annual stays.",
+      "summary_ru": "Приватная 3-спальная вилла в камерном охраняемом комплексе из 13 резиденций на Най Харне. Высокие потолки, терраса с садом и комфорт для сезонной или годовой аренды.",
       "specs": [
         { "label": "Bedrooms", "value": "3 En-suite" },
         { "label": "Villa Area", "value": "260 sq.m." },
         { "label": "Land Plot", "value": "360 sq.m." },
         { "label": "Seasonality", "value": "Monthly / Annual Rates" }
       ],
+      "specs_ru": [
+        { "label": "Спальни", "value": "3 со своим с/у" },
+        { "label": "Площадь виллы", "value": "260 кв.м" },
+        { "label": "Участок", "value": "360 кв.м" },
+        { "label": "Срок аренды", "value": "Помесячно / Год" }
+      ],
       "pdfs": [
-        { "label": "Rental Brochure & Rates (EN/RU)", "url": "./pdfs/signature-villa-rent.pdf" },
-        { "label": "Sales Option Overview (PDF)", "url": "./pdfs/signature-villa-sale.pdf" }
+        { "label": "Rental Brochure & Rates (EN/RU)", "label_ru": "Условия аренды и тарифы (EN/RU)", "url": "./pdfs/signature-villa-rent.pdf" },
+        { "label": "Sales Option Overview (PDF)", "label_ru": "Условия покупки (PDF)", "url": "./pdfs/signature-villa-sale.pdf" }
       ]
     },
     {
@@ -91,21 +131,32 @@
       "dealType": "rent",
       "location": "Catamaran / Yachts",
       "title": "Power Catamaran Whisky",
+      "title_ru": "Моторный катамаран Whisky",
       "price": "from THB 55,000 / day",
+      "price_ru": "от 55 000 THB / день",
       "tagline": "Private Day Charter • Racha, Coral & Maiton Islands",
+      "tagline_ru": "Частный дневной чартер • Острова Рача, Корал и Майтон",
       "teaserVideo": "./videos/catamaran-whisky-teaser.mp4",
       "overviewVideo": "./videos/catamaran-whisky-tour.mp4",
       "poster": "./posters/catamaran-whisky.jpg",
       "summary": "Full-service private day charter departing from Chalong Pier. Includes professional captain and crew, snorkeling gear, paddleboards, soft drinks, and fresh tropical fruit.",
+      "summary_ru": "Приватный дневной чартер с отправлением от пирса Чалонг. Включены капитан и экипаж, снаряжение для снорклинга, сапборды, прохладительные напитки и свежие фрукты.",
       "specs": [
         { "label": "Capacity", "value": "Up to 16 Guests" },
         { "label": "Departure", "value": "Chalong Pier" },
         { "label": "Routes", "value": "Racha / Coral / Maiton" },
         { "label": "Format", "value": "Full-Day / Sunset" }
       ],
+      "specs_ru": [
+        { "label": "Вместимость", "value": "До 16 гостей" },
+        { "label": "Выход", "value": "Пирс Чалонг" },
+        { "label": "Маршруты", "value": "Рача / Корал / Майтон" },
+        { "label": "Формат", "value": "Весь день / Закат" }
+      ],
       "pdfs": [
         {
           "label": "Full Day Charter Brochure (EN)",
+          "label_ru": "Брошюра полного дня чартера (EN)",
           "url": "https://atsalov-tech.github.io/phuket-portfolio/Motor_Catamaran_Whisky___Full_Day_Charter__EN_.pdf"
         }
       ]
@@ -115,20 +166,30 @@
       "dealType": "rent",
       "location": "Chalong / Central",
       "title": "Mutti Family Residence",
+      "title_ru": "Резиденция Mutti Family",
       "price": "from THB 220,000 / mo",
+      "price_ru": "от 220 000 THB / мес",
       "tagline": "4 Bedrooms • Close to BCIS • 24/7 Security",
+      "tagline_ru": "4 спальни • Рядом с BCIS • Охрана 24/7",
       "teaserVideo": "./videos/mutti-rent-teaser.mp4",
       "overviewVideo": "./videos/mutti-rent-tour.mp4",
       "poster": "./posters/mutti-pearl.jpg",
       "summary": "Ideal family villa for long-term relocation near BCIS school in Chalong, featuring expansive living zones, private pool maintenance, and gated security.",
+      "summary_ru": "Идеальная семейная вилла для долгосрочного проживания рядом со школой BCIS в Чалонге: просторная гостиная, обслуживание бассейна и круглосуточная охрана.",
       "specs": [
         { "label": "Bedrooms", "value": "4 Bedrooms" },
         { "label": "Built-up Area", "value": "420 sq.m." },
         { "label": "Minimum Stay", "value": "6 – 12 Months" },
         { "label": "Included", "value": "Pool & Garden Care" }
       ],
+      "specs_ru": [
+        { "label": "Спальни", "value": "4 спальни" },
+        { "label": "Площадь виллы", "value": "420 кв.м" },
+        { "label": "Мин. срок", "value": "6 – 12 месяцев" },
+        { "label": "Включено", "value": "Уход за бассейном и садом" }
+      ],
       "pdfs": [
-        { "label": "Villa Rental Presentation (PDF)", "url": "./pdfs/mutti-rental-presentation.pdf" }
+        { "label": "Villa Rental Presentation (PDF)", "label_ru": "Презентация аренды виллы (PDF)", "url": "./pdfs/mutti-rental-presentation.pdf" }
       ]
     }
   ]
