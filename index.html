@@ -116,19 +116,37 @@
 </head>
 <body>
   <div class="app-container">
-    <!-- Шапка и переключатель Rent / Sale -->
+    <!-- Шапка, переключатель языка EN/RU, кнопка Instagram и Rent / Sale -->
     <header class="app-header">
-      <div class="brand-row">
-        <span class="brand-subtitle">PHUKET PRIVATE PORTFOLIO</span>
-        <h1 class="brand-title">Villas & Yachts</h1>
+      <div class="header-top-row">
+        <div class="brand-row">
+          <span class="brand-subtitle" id="brand-subtitle">PHUKET PRIVATE PORTFOLIO</span>
+          <h1 class="brand-title" id="brand-title">Villas & Yachts</h1>
+        </div>
+
+        <div class="header-controls">
+          <button class="ig-pill-btn" id="btn-instagram" type="button" aria-label="Instagram" title="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span class="ig-pill-label">IG</span>
+          </button>
+
+          <div class="lang-switcher" role="group" aria-label="Language">
+            <button class="lang-btn active" data-lang="en" type="button" aria-label="English">🇬🇧</button>
+            <button class="lang-btn" data-lang="ru" type="button" aria-label="Русский">🇷🇺</button>
+          </div>
+        </div>
       </div>
 
       <div class="deal-switcher" role="tablist" aria-label="Deal type">
         <button class="deal-tab active" data-deal="rent" type="button">
-          Rent <span class="tab-count" id="count-rent">0</span>
+          <span id="label-rent">Rent</span> <span class="tab-count" id="count-rent">0</span>
         </button>
         <button class="deal-tab" data-deal="sale" type="button">
-          Sale <span class="tab-count" id="count-sale">0</span>
+          <span id="label-sale">Sale</span> <span class="tab-count" id="count-sale">0</span>
         </button>
       </div>
 
