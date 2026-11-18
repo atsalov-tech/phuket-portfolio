@@ -1,6 +1,124 @@
 {
   "items": [
     {
+      "id": "green-golf-resort-sale",
+      "dealType": "sale",
+      "location": "Chalong / Central",
+      "title": "Green Golf Resort, Kathu",
+      "title_ru": "Green Golf Resort (Кату)",
+      "price": "THB 11,000,000",
+      "price_ru": "11 000 000 THB",
+      "tagline": "3 Bedrooms • 150 sq.m. • Full Renovation 2026",
+      "tagline_ru": "3 спальни • 150 м² • Полная реновация 2026",
+      "teaserVideo": "./gemini_generated_video_0E72EB49.mp4",
+      "overviewVideo": "./gemini_generated_video_0E72EB49.mp4",
+      "poster": "",
+      "summary": "Fully renovated 150 sq.m. apartment on the 3rd floor at Green Golf Resort, Kathu. Features 3 spacious bedrooms, a bright designer living room with panoramic views, premium furnishings, and a large swimming pool with security.",
+      "summary_ru": "Полностью реновированные апартаменты площадью 150 кв.м на 3 этаже в Green Golf Resort (Кату). 3 просторные спальни, светлая дизайнерская гостиная с панорамным видом, премиальная мебель и техника, большой бассейн и охрана.",
+      "specs": [
+        {
+          "label": "Layout",
+          "value": "3 Bedrooms, Living Room"
+        },
+        {
+          "label": "Area",
+          "value": "150 sq.m. (3rd Floor)"
+        },
+        {
+          "label": "Renovation",
+          "value": "Full Renovation 2026"
+        },
+        {
+          "label": "Facilities",
+          "value": "Swimming Pool, Security"
+        }
+      ],
+      "specs_ru": [
+        {
+          "label": "Планировка",
+          "value": "3 спальни, зал"
+        },
+        {
+          "label": "Площадь",
+          "value": "150 м² (3 этаж)"
+        },
+        {
+          "label": "Ремонт",
+          "value": "Полная реновация 2026"
+        },
+        {
+          "label": "Удобства",
+          "value": "Бассейн, охрана"
+        }
+      ],
+      "pdfs": [
+        {
+          "label": "Presentation & Details (PDF)",
+          "label_ru": "Презентация и детали (PDF)",
+          "url": "./Green_Golf_Resort_Kathu_Presentation.pdf"
+        }
+      ]
+    },
+    {
+      "id": "green-golf-resort-rent",
+      "dealType": "rent",
+      "location": "Chalong / Central",
+      "title": "Green Golf Resort, Kathu",
+      "title_ru": "Green Golf Resort (Кату)",
+      "price": "On Request",
+      "price_ru": "По запросу",
+      "tagline": "3 Bedrooms • 150 sq.m. • Long & Short-Term",
+      "tagline_ru": "3 спальни • 150 м² • Долгосрочная и краткосрочная",
+      "teaserVideo": "./gemini_generated_video_0E72EB49.mp4",
+      "overviewVideo": "./gemini_generated_video_0E72EB49.mp4",
+      "poster": "",
+      "summary": "Fully renovated 150 sq.m. apartment on the 3rd floor at Green Golf Resort, Kathu. Features 3 spacious bedrooms, a bright designer living room with panoramic views, and a large swimming pool. Available for both long-term and short-term lease.",
+      "summary_ru": "Полностью реновированные апартаменты площадью 150 кв.м на 3 этаже в Green Golf Resort (Кату). 3 просторные спальни, светлая дизайнерская гостиная с панорамным видом, большой бассейн и охрана. Доступно для долгосрочной и краткосрочной аренды.",
+      "specs": [
+        {
+          "label": "Layout",
+          "value": "3 Bedrooms, Living Room"
+        },
+        {
+          "label": "Area",
+          "value": "150 sq.m. (3rd Floor)"
+        },
+        {
+          "label": "Renovation",
+          "value": "Full Renovation 2026"
+        },
+        {
+          "label": "Lease Terms",
+          "value": "Long-Term & Short-Term"
+        }
+      ],
+      "specs_ru": [
+        {
+          "label": "Планировка",
+          "value": "3 спальни, зал"
+        },
+        {
+          "label": "Площадь",
+          "value": "150 м² (3 этаж)"
+        },
+        {
+          "label": "Ремонт",
+          "value": "Полная реновация 2026"
+        },
+        {
+          "label": "Условия",
+          "value": "Долгосрочная и краткосрочная"
+        }
+      ],
+      "pdfs": [
+        {
+          "label": "Presentation & Details (PDF)",
+          "label_ru": "Презентация и детали (PDF)",
+          "url": "./Green_Golf_Resort_Kathu_Presentation.pdf"
+        }
+      ]
+    },
+    {
       "id": "mutti-pearl-sale",
       "dealType": "sale",
       "location": "Chalong / Central",
@@ -16,20 +134,52 @@
       "summary": "Spacious family residence in a secure gated development in Chalong, minutes from BCIS international school and Chalong Pier. Designed for full-time island living and high-yield long-term tenancy.",
       "summary_ru": "Просторная семейная резиденция в охраняемом комплексе в Чалонге, в нескольких минутах от школы BCIS и пирса Чалонг. Подходит для круглогодичной жизни на острове и стабильной долгосрочной аренды.",
       "specs": [
-        { "label": "Bedrooms", "value": "4 En-suite" },
-        { "label": "Built-up Area", "value": "420 sq.m." },
-        { "label": "Land Plot", "value": "580 sq.m." },
-        { "label": "Ownership", "value": "Freehold / Leasehold" }
+        {
+          "label": "Bedrooms",
+          "value": "4 En-suite"
+        },
+        {
+          "label": "Built-up Area",
+          "value": "420 sq.m."
+        },
+        {
+          "label": "Land Plot",
+          "value": "580 sq.m."
+        },
+        {
+          "label": "Ownership",
+          "value": "Freehold / Leasehold"
+        }
       ],
       "specs_ru": [
-        { "label": "Спальни", "value": "4 со своим с/у" },
-        { "label": "Площадь виллы", "value": "420 кв.м" },
-        { "label": "Участок", "value": "580 кв.м" },
-        { "label": "Форма владения", "value": "Freehold / Leasehold" }
+        {
+          "label": "Спальни",
+          "value": "4 со своим с/у"
+        },
+        {
+          "label": "Площадь виллы",
+          "value": "420 кв.м"
+        },
+        {
+          "label": "Участок",
+          "value": "580 кв.м"
+        },
+        {
+          "label": "Форма владения",
+          "value": "Freehold / Leasehold"
+        }
       ],
       "pdfs": [
-        { "label": "Presentation & Specs (EN)", "label_ru": "Презентация и планы (EN)", "url": "./pdfs/mutti-villa-pearl-en.pdf" },
-        { "label": "Презентация и планировка (RU)", "label_ru": "Презентация и планировка (RU)", "url": "./pdfs/mutti-villa-pearl-ru.pdf" }
+        {
+          "label": "Presentation & Specs (EN)",
+          "label_ru": "Презентация и планы (EN)",
+          "url": "./pdfs/mutti-villa-pearl-en.pdf"
+        },
+        {
+          "label": "Презентация и планировка (RU)",
+          "label_ru": "Презентация и планировка (RU)",
+          "url": "./pdfs/mutti-villa-pearl-ru.pdf"
+        }
       ]
     },
     {
@@ -48,19 +198,47 @@
       "summary": "Contemporary low-rise residence by tier-1 Thai developer Sansiri in the prestigious Bangtao lifestyle hub, offering strong capital appreciation and turnkey rental demand.",
       "summary_ru": "Современная малоэтажная резиденция от ведущего застройщика Таиланда Sansiri в престижном районе Бангтао с высоким потенциалом роста капитала и стабильным арендным спросом.",
       "specs": [
-        { "label": "Bedrooms", "value": "2 Bedrooms" },
-        { "label": "Unit Area", "value": "88 sq.m." },
-        { "label": "Developer", "value": "Sansiri PCL" },
-        { "label": "Ownership", "value": "Foreign Freehold" }
+        {
+          "label": "Bedrooms",
+          "value": "2 Bedrooms"
+        },
+        {
+          "label": "Unit Area",
+          "value": "88 sq.m."
+        },
+        {
+          "label": "Developer",
+          "value": "Sansiri PCL"
+        },
+        {
+          "label": "Ownership",
+          "value": "Foreign Freehold"
+        }
       ],
       "specs_ru": [
-        { "label": "Спальни", "value": "2 спальни" },
-        { "label": "Площадь", "value": "88 кв.м" },
-        { "label": "Застройщик", "value": "Sansiri PCL" },
-        { "label": "Оформление", "value": "Foreign Freehold" }
+        {
+          "label": "Спальни",
+          "value": "2 спальни"
+        },
+        {
+          "label": "Площадь",
+          "value": "88 кв.м"
+        },
+        {
+          "label": "Застройщик",
+          "value": "Sansiri PCL"
+        },
+        {
+          "label": "Оформление",
+          "value": "Foreign Freehold"
+        }
       ],
       "pdfs": [
-        { "label": "Brochure & Floor Plans (EN/RU)", "label_ru": "Брошюра и планировки (EN/RU)", "url": "./pdfs/sansiri-rhea-brochure.pdf" }
+        {
+          "label": "Brochure & Floor Plans (EN/RU)",
+          "label_ru": "Брошюра и планировки (EN/RU)",
+          "url": "./pdfs/sansiri-rhea-brochure.pdf"
+        }
       ]
     },
     {
@@ -79,19 +257,47 @@
       "summary": "Turnkey 2-bedroom pool villa in a peaceful residential pocket of Nai Harn, 5 minutes from Nai Harn Beach, fitness clubs, and artisan cafes.",
       "summary_ru": "Готовая вилла с 2 спальнями и частным бассейном в тихой жилой части Най Харна — в 5 минутах от пляжа Най Харн, спортклубов и кафе.",
       "specs": [
-        { "label": "Bedrooms", "value": "2 Bedrooms" },
-        { "label": "Villa Area", "value": "120 sq.m." },
-        { "label": "Land Plot", "value": "250 sq.m." },
-        { "label": "Ownership", "value": "Thai Company" }
+        {
+          "label": "Bedrooms",
+          "value": "2 Bedrooms"
+        },
+        {
+          "label": "Villa Area",
+          "value": "120 sq.m."
+        },
+        {
+          "label": "Land Plot",
+          "value": "250 sq.m."
+        },
+        {
+          "label": "Ownership",
+          "value": "Thai Company"
+        }
       ],
       "specs_ru": [
-        { "label": "Спальни", "value": "2 спальни" },
-        { "label": "Площадь виллы", "value": "120 кв.м" },
-        { "label": "Участок", "value": "250 кв.м" },
-        { "label": "Оформление", "value": "Тайская компания" }
+        {
+          "label": "Спальни",
+          "value": "2 спальни"
+        },
+        {
+          "label": "Площадь виллы",
+          "value": "120 кв.м"
+        },
+        {
+          "label": "Участок",
+          "value": "250 кв.м"
+        },
+        {
+          "label": "Оформление",
+          "value": "Тайская компания"
+        }
       ],
       "pdfs": [
-        { "label": "Sales Presentation (EN / RU)", "label_ru": "Презентация на продажу (EN / RU)", "url": "./pdfs/plunge-1-naiharn-sale.pdf" }
+        {
+          "label": "Sales Presentation (EN / RU)",
+          "label_ru": "Презентация на продажу (EN / RU)",
+          "url": "./pdfs/plunge-1-naiharn-sale.pdf"
+        }
       ]
     },
     {
@@ -110,20 +316,52 @@
       "summary": "Private 3-bedroom villa inside an intimate gated community of 13 residences in Nai Harn. High ceilings, tropical garden terrace, and proven comfort for seasonal or annual stays.",
       "summary_ru": "Приватная 3-спальная вилла в камерном охраняемом комплексе из 13 резиденций на Най Харне. Высокие потолки, терраса с садом и комфорт для сезонной или годовой аренды.",
       "specs": [
-        { "label": "Bedrooms", "value": "3 En-suite" },
-        { "label": "Villa Area", "value": "260 sq.m." },
-        { "label": "Land Plot", "value": "360 sq.m." },
-        { "label": "Seasonality", "value": "Monthly / Annual Rates" }
+        {
+          "label": "Bedrooms",
+          "value": "3 En-suite"
+        },
+        {
+          "label": "Villa Area",
+          "value": "260 sq.m."
+        },
+        {
+          "label": "Land Plot",
+          "value": "360 sq.m."
+        },
+        {
+          "label": "Seasonality",
+          "value": "Monthly / Annual Rates"
+        }
       ],
       "specs_ru": [
-        { "label": "Спальни", "value": "3 со своим с/у" },
-        { "label": "Площадь виллы", "value": "260 кв.м" },
-        { "label": "Участок", "value": "360 кв.м" },
-        { "label": "Срок аренды", "value": "Помесячно / Год" }
+        {
+          "label": "Спальни",
+          "value": "3 со своим с/у"
+        },
+        {
+          "label": "Площадь виллы",
+          "value": "260 кв.м"
+        },
+        {
+          "label": "Участок",
+          "value": "360 кв.м"
+        },
+        {
+          "label": "Срок аренды",
+          "value": "Помесячно / Год"
+        }
       ],
       "pdfs": [
-        { "label": "Rental Brochure & Rates (EN/RU)", "label_ru": "Условия аренды и тарифы (EN/RU)", "url": "./pdfs/signature-villa-rent.pdf" },
-        { "label": "Sales Option Overview (PDF)", "label_ru": "Условия покупки (PDF)", "url": "./pdfs/signature-villa-sale.pdf" }
+        {
+          "label": "Rental Brochure & Rates (EN/RU)",
+          "label_ru": "Условия аренды и тарифы (EN/RU)",
+          "url": "./pdfs/signature-villa-rent.pdf"
+        },
+        {
+          "label": "Sales Option Overview (PDF)",
+          "label_ru": "Условия покупки (PDF)",
+          "url": "./pdfs/signature-villa-sale.pdf"
+        }
       ]
     },
     {
@@ -142,16 +380,40 @@
       "summary": "Full-service private day charter departing from Chalong Pier. Includes professional captain and crew, snorkeling gear, paddleboards, soft drinks, and fresh tropical fruit.",
       "summary_ru": "Приватный дневной чартер с отправлением от пирса Чалонг. Включены капитан и экипаж, снаряжение для снорклинга, сапборды, прохладительные напитки и свежие фрукты.",
       "specs": [
-        { "label": "Capacity", "value": "Up to 16 Guests" },
-        { "label": "Departure", "value": "Chalong Pier" },
-        { "label": "Routes", "value": "Racha / Coral / Maiton" },
-        { "label": "Format", "value": "Full-Day / Sunset" }
+        {
+          "label": "Capacity",
+          "value": "Up to 16 Guests"
+        },
+        {
+          "label": "Departure",
+          "value": "Chalong Pier"
+        },
+        {
+          "label": "Routes",
+          "value": "Racha / Coral / Maiton"
+        },
+        {
+          "label": "Format",
+          "value": "Full-Day / Sunset"
+        }
       ],
       "specs_ru": [
-        { "label": "Вместимость", "value": "До 16 гостей" },
-        { "label": "Выход", "value": "Пирс Чалонг" },
-        { "label": "Маршруты", "value": "Рача / Корал / Майтон" },
-        { "label": "Формат", "value": "Весь день / Закат" }
+        {
+          "label": "Вместимость",
+          "value": "До 16 гостей"
+        },
+        {
+          "label": "Выход",
+          "value": "Пирс Чалонг"
+        },
+        {
+          "label": "Маршруты",
+          "value": "Рача / Корал / Майтон"
+        },
+        {
+          "label": "Формат",
+          "value": "Весь день / Закат"
+        }
       ],
       "pdfs": [
         {
@@ -177,19 +439,47 @@
       "summary": "Ideal family villa for long-term relocation near BCIS school in Chalong, featuring expansive living zones, private pool maintenance, and gated security.",
       "summary_ru": "Идеальная семейная вилла для долгосрочного проживания рядом со школой BCIS в Чалонге: просторная гостиная, обслуживание бассейна и круглосуточная охрана.",
       "specs": [
-        { "label": "Bedrooms", "value": "4 Bedrooms" },
-        { "label": "Built-up Area", "value": "420 sq.m." },
-        { "label": "Minimum Stay", "value": "6 – 12 Months" },
-        { "label": "Included", "value": "Pool & Garden Care" }
+        {
+          "label": "Bedrooms",
+          "value": "4 Bedrooms"
+        },
+        {
+          "label": "Built-up Area",
+          "value": "420 sq.m."
+        },
+        {
+          "label": "Minimum Stay",
+          "value": "6 – 12 Months"
+        },
+        {
+          "label": "Included",
+          "value": "Pool & Garden Care"
+        }
       ],
       "specs_ru": [
-        { "label": "Спальни", "value": "4 спальни" },
-        { "label": "Площадь виллы", "value": "420 кв.м" },
-        { "label": "Мин. срок", "value": "6 – 12 месяцев" },
-        { "label": "Включено", "value": "Уход за бассейном и садом" }
+        {
+          "label": "Спальни",
+          "value": "4 спальни"
+        },
+        {
+          "label": "Площадь виллы",
+          "value": "420 кв.м"
+        },
+        {
+          "label": "Мин. срок",
+          "value": "6 – 12 месяцев"
+        },
+        {
+          "label": "Включено",
+          "value": "Уход за бассейном и садом"
+        }
       ],
       "pdfs": [
-        { "label": "Villa Rental Presentation (PDF)", "label_ru": "Презентация аренды виллы (PDF)", "url": "./pdfs/mutti-rental-presentation.pdf" }
+        {
+          "label": "Villa Rental Presentation (PDF)",
+          "label_ru": "Презентация аренды виллы (PDF)",
+          "url": "./pdfs/mutti-rental-presentation.pdf"
+        }
       ]
     }
   ]
