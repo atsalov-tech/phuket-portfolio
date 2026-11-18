@@ -3,8 +3,9 @@ const tg = window.Telegram?.WebApp;
 const CONFIG = {
   // Рабочий Telegram username без символа @
   MANAGER_TELEGRAM: "FAMILIAHOLIDAY",
-  // Ссылка на ваш профиль Instagram
+  // Ссылка на ваш профиль Instagram (вставьте ваш @username вместо заглушки)
   INSTAGRAM_URL: "https://www.instagram.com/familiaholiday/",
+  BOT_APP_URL: "https://t.me/PhuketVillasCondo_bot/catalog",
   LOCATIONS: [
     "All",
     "Nai Harn / Rawai",
@@ -28,6 +29,8 @@ const I18N = {
     loadError: "Unable to load catalog data. Please try again.",
     readPdf: "Read PDF",
     contactBtn: "Request Details in Telegram",
+    shareProperty: "🔗 Share / Copy Client Link",
+    copied: "✓ Link copied!",
     pdfBack: "← Back",
     pdfSave: "⬇ Save",
     pdfLoading: "Loading brochure...",
@@ -60,6 +63,8 @@ const I18N = {
     loadError: "Не удалось загрузить каталог. Попробуйте еще раз.",
     readPdf: "Открыть PDF",
     contactBtn: "Уточнить детали в Telegram",
+    shareProperty: "🔗 Отправить / скопировать ссылку",
+    copied: "✓ Ссылка скопирована!",
     pdfBack: "← Назад",
     pdfSave: "⬇ Скачать",
     pdfLoading: "Загрузка брошюры...",
@@ -202,11 +207,25 @@ function setLanguage(lang) {
 // Загрузка базы объектов
 async function loadCatalog() {
   try {
-    const res = await fetch(`./data.json?v=${Date.now()}`);
+    const res = await fetch(`./data.json?v=${[invalid URL]()}`);
     const data = await res.json();
     state.items = data.items || [];
     updateDealCounts();
+    const startParam = tg?.initDataUnsafe?.start_param || new URLSearchParams([invalid URL]).get("startapp");
+    if (startParam) {
+      const target = state.items.find(i => [invalid URL] === startParam);
+      if (target) {
+        state.activeDeal = target.dealType;
+        document.querySelectorAll(".deal-tab").forEach(tab => {
+          tab.classList.toggle("active", [invalid URL] === target.dealType);
+        });
+      }
+    }
     applyLanguageUI();
+    if (startParam) {
+      const target = state.items.find(i => [invalid URL] === startParam);
+      if (target) openDetail(target, true);
+    }
   } catch (err) {
     document.getElementById("catalog-feed").innerHTML =
       `<div class="empty-state">${t("loadError")}</div>`;
@@ -223,7 +242,7 @@ function updateDealCounts() {
 
 function renderFilters() {
   const container = document.getElementById("location-filters");
-  container.innerHTML = CONFIG.LOCATIONS.map(loc => `
+  container.innerHTML = [invalid URL](loc => `
     <button
       type="button"
       class="filter-chip ${state.activeLocation === loc ? "active" : ""}"
@@ -248,10 +267,10 @@ function setupVideoObserver() {
 
   videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      const video = entry.target;
+      const video = [invalid URL];
       if (entry.isIntersecting) {
         video.muted = true;
-        video.play().catch(() => {});
+        [invalid URL]().catch(() => {});
       } else {
         video.pause();
       }
@@ -274,8 +293,8 @@ function renderFeed() {
     return;
   }
 
-  feed.innerHTML = filtered.map(item => `
-    <article class="property-card" data-id="${item.id}">
+  feed.innerHTML = [invalid URL](item => `
+    <article class="property-card" data-id="${[invalid URL]}">
       <div class="media-wrap">
         <video
           class="card-video"
@@ -301,7 +320,7 @@ function renderFeed() {
 
   feed.querySelectorAll(".property-card").forEach(card => {
     card.addEventListener("click", () => {
-      const selected = state.items.find(i => i.id === card.dataset.id);
+      const selected = state.items.find(i => [invalid URL] === [invalid URL]);
       if (selected) openDetail(selected);
     });
   });
@@ -318,7 +337,7 @@ function openDetail(item, skipHaptic = false) {
   document.querySelectorAll(".card-video").forEach(v => v.pause());
 
   const specsList = (state.lang === "ru" && item.specs_ru) ? item.specs_ru : (item.specs || []);
-  const specsHtml = specsList.map(spec => `
+  const specsHtml = [invalid URL](spec => `
     <div class="spec-box">
       <span class="spec-label">${spec.label}</span>
       <span class="spec-value">${spec.value}</span>
@@ -360,6 +379,9 @@ function openDetail(item, skipHaptic = false) {
 
       <div class="actions-stack">
         ${pdfsHtml}
+        <button type="button" class="btn-share" id="btn-share-item">
+          ${t("shareProperty")}
+        </button>
         <button type="button" class="btn-contact" id="btn-direct-tg">
           ${t("contactBtn")}
         </button>
@@ -390,6 +412,15 @@ function openDetail(item, skipHaptic = false) {
     });
   });
 
+  // Кнопка «Поделиться / Скопировать ссылку» для клиента
+  const shareBtn = document.getElementById("btn-share-item");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", () => {
+      const shareUrl = `${[invalid URL]_APP_URL}?startapp=${encodeURIComponent([invalid URL])}`;
+      shareOrCopyLink(shareUrl, locField(item, "title"), shareBtn);
+    });
+  }
+
   // Прямая связь с автоподстановкой названия объекта
   document.getElementById("btn-direct-tg").addEventListener("click", () => {
     haptic("medium");
@@ -401,7 +432,7 @@ function openDetail(item, skipHaptic = false) {
   overlay.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 
-  if (tg?.BackButton) tg.BackButton.show();
+  if (tg?.BackButton) [invalid URL]();
 }
 
 function closeDetail() {
@@ -454,7 +485,7 @@ async function openPdfViewer(rawUrl, titleLabel) {
   pdfOverlay.setAttribute("aria-hidden", "false");
 
   if (tg?.disableVerticalSwipes) tg.disableVerticalSwipes();
-  if (tg?.BackButton) tg.BackButton.show();
+  if (tg?.BackButton) [invalid URL]();
 
   const currentToken = ++activePdfRenderToken;
 
@@ -557,7 +588,7 @@ function closePdfViewer() {
 
   // Если карточка объекта под низом открыта — оставляем кнопку Back активной для возврата в каталог
   if (state.selectedItem && document.getElementById("detail-overlay").classList.contains("open")) {
-    if (tg?.BackButton) tg.BackButton.show();
+    if (tg?.BackButton) [invalid URL]();
   } else if (tg?.BackButton) {
     tg.BackButton.hide();
   }
@@ -575,6 +606,49 @@ function togglePdfZoom() {
   zoomBtn.textContent = pct === 100 ? "1x" : pct === 160 ? "1.6x" : "2.2x";
 }
 
+async function copyToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (_) {}
+  }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch (_) {
+    return false;
+  }
+}
+
+async function shareOrCopyLink(url, title, btnEl) {
+  if (!url) return;
+  haptic("medium");
+  const copied = await copyToClipboard(url);
+  if (copied && btnEl) {
+    const prev = btnEl.textContent;
+    btnEl.textContent = [invalid URL] === "pdf-share-btn" ? "✓" : t("copied");
+    btnEl.classList.add("copied");
+    setTimeout(() => {
+      btnEl.textContent = prev;
+      btnEl.classList.remove("copied");
+    }, 2000);
+  }
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: title || document.title, url });
+    } catch (_) {}
+  }
+}
+
 function saveOrOpenPdf() {
   haptic("medium");
   if (!state.activePdfUrl) return;
@@ -586,7 +660,7 @@ function saveOrOpenPdf() {
   } else if (tg?.openLink) {
     tg.openLink(state.activePdfUrl, { try_instant_view: false });
   } else {
-    window.open(state.activePdfUrl, "_blank", "noopener");
+    [invalid URL](state.activePdfUrl, "_blank", "noopener");
   }
 }
 
@@ -595,7 +669,7 @@ function openInstagram() {
   if (tg?.openLink) {
     tg.openLink(CONFIG.INSTAGRAM_URL, { try_instant_view: false });
   } else {
-    window.open(CONFIG.INSTAGRAM_URL, "_blank", "noopener");
+    [invalid URL](CONFIG.INSTAGRAM_URL, "_blank", "noopener");
   }
 }
 
@@ -607,26 +681,26 @@ function contactManager(item) {
 
   let message;
   if (state.lang === "ru") {
-    const dealLabel = item.dealType === "rent" ? "Аренда / Чартер" : "Покупка";
+    const dealLabel = [invalid URL]Type === "rent" ? "Аренда / Чартер" : "Покупка";
     message = `Здравствуйте! Интересует объект "${title}" (${dealLabel}, ${loc} — ${price}). Подскажите, пожалуйста, доступность и детали.`;
   } else {
     const dealLabel = item.dealType === "rent" ? "Rent / Charter" : "Purchase";
     message = `Hello! I'm interested in "${title}" (${dealLabel}, ${loc} — ${price}). Please share availability and details.`;
   }
 
-  const tgUrl = `https://t.me/${CONFIG.MANAGER_TELEGRAM}?text=${encodeURIComponent(message)}`;
+  const tgUrl = `[invalid URL]`;
 
   if (tg?.openTelegramLink) {
     tg.openTelegramLink(tgUrl);
   } else {
-    window.open(tgUrl, "_blank", "noopener");
+    [invalid URL](tgUrl, "_blank", "noopener");
   }
 }
 
 // Слушатели верхнего переключателя Rent / Sale
 document.querySelectorAll(".deal-tab").forEach(tab => {
   tab.addEventListener("click", () => {
-    const deal = tab.dataset.deal;
+    const deal = [invalid URL];
     if (state.activeDeal === deal) return;
     haptic("selection");
     state.activeDeal = deal;
@@ -644,6 +718,9 @@ document.getElementById("btn-instagram").addEventListener("click", openInstagram
 document.getElementById("ig-footer-card").addEventListener("click", openInstagram);
 document.getElementById("detail-close").addEventListener("click", closeDetail);
 document.getElementById("pdf-back-btn").addEventListener("click", closePdfViewer);
+document.getElementById("pdf-share-btn").addEventListener("click", (e) => {
+  shareOrCopyLink(state.activePdfUrl, state.activePdfName, e.currentTarget);
+});
 document.getElementById("pdf-zoom-btn").addEventListener("click", togglePdfZoom);
 document.getElementById("pdf-download-btn").addEventListener("click", saveOrOpenPdf);
 
