@@ -1,6 +1,183 @@
 {
   "items": [
     {
+      "id": "signature-tropical-villa-sale",
+      "dealType": "sale",
+      "location": "Nai Harn / Rawai",
+      "title": "Signature Tropical Villa",
+      "title_ru": "Signature Tropical Villa",
+      "price": "THB 19,190,000",
+      "price_ru": "19 190 000 THB",
+      "tagline": "3 Bedrooms • 240 sq.m. • 1 km to Nai Harn Beach",
+      "tagline_ru": "3 спальни • 240 м² • 1 км до пляжа Най Харн",
+      "teaserVideo": "./gemini_generated_video_D52BF26C.mp4",
+      "overviewVideo": "./gemini_generated_video_D52BF26C.mp4",
+      "poster": "",
+      "summary": "Signature Tropical Villa offers 240 sq.m. of well-planned tropical living just 1 km from Nai Harn Beach. The residence features 3 bedrooms, 3 bathrooms, a bright living room with an open-plan kitchen, a private swimming pool, and a covered outdoor dining sala.",
+      "summary_ru": "Signature Tropical Villa — просторная вилла площадью 240 м² всего в 1 км от пляжа Най Харн. Включает 3 спальни, 3 ванные комнаты, светлую гостиную с современной кухней, собственный бассейн и крытую обеденную беседку в тропическом саду.",
+      "specs": [
+        {
+          "label": "Bedrooms",
+          "value": "3 + Living Room"
+        },
+        {
+          "label": "Bathrooms",
+          "value": "3 Bathrooms"
+        },
+        {
+          "label": "Living Area",
+          "value": "240 sq.m."
+        },
+        {
+          "label": "Beach",
+          "value": "1 km to Nai Harn"
+        }
+      ],
+      "specs_ru": [
+        {
+          "label": "Спальни",
+          "value": "3 + гостиная"
+        },
+        {
+          "label": "Ванные",
+          "value": "3 ванные"
+        },
+        {
+          "label": "Площадь",
+          "value": "240 м²"
+        },
+        {
+          "label": "До пляжа",
+          "value": "1 км до Най Харн"
+        }
+      ],
+      "pdfs": [
+        {
+          "label": "Presentation & Gallery (EN/RU)",
+          "label_ru": "Презентация и фотогалерея (EN/RU)",
+          "url": "./Signature_Tropical_Villa_Nai_Harn.pdf"
+        }
+      ]
+    },
+    {
+      "id": "signature-tropical-villa-rent",
+      "dealType": "rent",
+      "location": "Nai Harn / Rawai",
+      "title": "Signature Tropical Villa",
+      "title_ru": "Signature Tropical Villa",
+      "price": "Upon Request",
+      "price_ru": "По договорённости",
+      "tagline": "3 Bedrooms • 240 sq.m. • Private Pool & Sala",
+      "tagline_ru": "3 спальни • 240 м² • Бассейн и беседка",
+      "teaserVideo": "./gemini_generated_video_D52BF26C.mp4",
+      "overviewVideo": "./gemini_generated_video_D52BF26C.mp4",
+      "poster": "",
+      "summary": "Signature Tropical Villa offers 240 sq.m. of well-planned tropical living just 1 km from Nai Harn Beach. The residence features 3 bedrooms, 3 bathrooms, a bright living room with an open-plan kitchen, a private swimming pool, and a covered outdoor dining sala.",
+      "summary_ru": "Signature Tropical Villa — просторная вилла площадью 240 м² всего в 1 км от пляжа Най Харн. Включает 3 спальни, 3 ванные комнаты, светлую гостиную с современной кухней, собственный бассейн и крытую обеденную беседку в тропическом саду.",
+      "specs": [
+        {
+          "label": "Bedrooms",
+          "value": "3 + Living Room"
+        },
+        {
+          "label": "Bathrooms",
+          "value": "3 Bathrooms"
+        },
+        {
+          "label": "Living Area",
+          "value": "240 sq.m."
+        },
+        {
+          "label": "Beach",
+          "value": "1 km to Nai Harn"
+        }
+      ],
+      "specs_ru": [
+        {
+          "label": "Спальни",
+          "value": "3 + гостиная"
+        },
+        {
+          "label": "Ванные",
+          "value": "3 ванные"
+        },
+        {
+          "label": "Площадь",
+          "value": "240 м²"
+        },
+        {
+          "label": "До пляжа",
+          "value": "1 км до Най Харн"
+        }
+      ],
+      "pdfs": [
+        {
+          "label": "Presentation & Gallery (EN/RU)",
+          "label_ru": "Презентация и фотогалерея (EN/RU)",
+          "url": "./Signature_Tropical_Villa_Nai_Harn.pdf"
+        }
+      ]
+    },
+    {
+      "id": "royal-marina-villa-sale",
+      "dealType": "sale",
+      "location": "Royal Phuket Marina",
+      "title": "Royal Marina Villa",
+      "title_ru": "Royal Marina Villa",
+      "price": "Price on Request",
+      "price_ru": "Цена по запросу",
+      "tagline": "5 Bedrooms • 1,058 sq.m. • Private 23m Yacht Berth",
+      "tagline_ru": "5 спален • 1 058 м² • Причал для яхты 23 м",
+      "teaserVideo": "./gemini_generated_video_D45C6277.mp4",
+      "overviewVideo": "./gemini_generated_video_D45C6277.mp4",
+      "poster": "",
+      "summary": "Waterfront 5-bedroom residence at Royal Phuket Marina with a private 23-metre yacht berth beside the villa. Features 748 sq.m. internal area across four levels, 310 sq.m. outdoor space with a 20+ m pool, in-pool Jacuzzi, cabana bar, and garden dining sala.",
+      "summary_ru": "Вилла на первой линии с 5 спальнями в Royal Phuket Marina и собственным причалом для яхты до 23 метров прямо у дома. 748 м² внутренней площади на 4 уровнях, 310 м² террас с 20-метровым бассейном, джакузи, баром и салой в саду.",
+      "specs": [
+        {
+          "label": "Bedrooms",
+          "value": "5 En-suite"
+        },
+        {
+          "label": "Internal Area",
+          "value": "748 sq.m."
+        },
+        {
+          "label": "Total Built-up",
+          "value": "1,058 sq.m."
+        },
+        {
+          "label": "Yacht Berth",
+          "value": "23 m Private Berth"
+        }
+      ],
+      "specs_ru": [
+        {
+          "label": "Спальни",
+          "value": "5 со своим с/у"
+        },
+        {
+          "label": "Внутр. площадь",
+          "value": "748 м²"
+        },
+        {
+          "label": "Общая площадь",
+          "value": "1 058 м²"
+        },
+        {
+          "label": "Причал для яхты",
+          "value": "Частный причал 23 м"
+        }
+      ],
+      "pdfs": [
+        {
+          "label": "Presentation & Floor Plans (EN)",
+          "label_ru": "Презентация и планировки (EN)",
+          "url": "./Royal-Marina-Villa-Eng.pdf"
+        }
+      ]
+    },
+    {
       "id": "green-golf-resort-sale",
       "dealType": "sale",
       "location": "Chalong / Central",
@@ -297,70 +474,6 @@
           "label": "Sales Presentation (EN / RU)",
           "label_ru": "Презентация на продажу (EN / RU)",
           "url": "./pdfs/plunge-1-naiharn-sale.pdf"
-        }
-      ]
-    },
-    {
-      "id": "signature-villa-rent",
-      "dealType": "rent",
-      "location": "Nai Harn / Rawai",
-      "title": "The Signature Villa Nai Harn",
-      "title_ru": "The Signature Villa Най Харн",
-      "price": "from THB 180,000 / mo",
-      "price_ru": "от 180 000 THB / мес",
-      "tagline": "3 Bedrooms • Boutique 13-Villa Estate • Saltwater Pool",
-      "tagline_ru": "3 спальни • Камерный комплекс из 13 вилл • Соленый бассейн",
-      "teaserVideo": "./videos/signature-villa-teaser.mp4",
-      "overviewVideo": "./videos/signature-villa-tour.mp4",
-      "poster": "./posters/signature-villa.jpg",
-      "summary": "Private 3-bedroom villa inside an intimate gated community of 13 residences in Nai Harn. High ceilings, tropical garden terrace, and proven comfort for seasonal or annual stays.",
-      "summary_ru": "Приватная 3-спальная вилла в камерном охраняемом комплексе из 13 резиденций на Най Харне. Высокие потолки, терраса с садом и комфорт для сезонной или годовой аренды.",
-      "specs": [
-        {
-          "label": "Bedrooms",
-          "value": "3 En-suite"
-        },
-        {
-          "label": "Villa Area",
-          "value": "260 sq.m."
-        },
-        {
-          "label": "Land Plot",
-          "value": "360 sq.m."
-        },
-        {
-          "label": "Seasonality",
-          "value": "Monthly / Annual Rates"
-        }
-      ],
-      "specs_ru": [
-        {
-          "label": "Спальни",
-          "value": "3 со своим с/у"
-        },
-        {
-          "label": "Площадь виллы",
-          "value": "260 кв.м"
-        },
-        {
-          "label": "Участок",
-          "value": "360 кв.м"
-        },
-        {
-          "label": "Срок аренды",
-          "value": "Помесячно / Год"
-        }
-      ],
-      "pdfs": [
-        {
-          "label": "Rental Brochure & Rates (EN/RU)",
-          "label_ru": "Условия аренды и тарифы (EN/RU)",
-          "url": "./pdfs/signature-villa-rent.pdf"
-        },
-        {
-          "label": "Sales Option Overview (PDF)",
-          "label_ru": "Условия покупки (PDF)",
-          "url": "./pdfs/signature-villa-sale.pdf"
         }
       ]
     },
