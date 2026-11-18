@@ -7,9 +7,614 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Phuket Villas" />
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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" />
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <link rel="stylesheet" href="./style.css?v=2" />
+  <style>
+:root {
+  --bg-main: #0e1013;
+  --bg-surface: #161a21;
+  --bg-elevated: #1d222c;
+  --gold-primary: #d8b563;
+  --gold-bright: #f3d58d;
+  --gold-soft: rgba(216, 181, 99, 0.14);
+  --gold-border: rgba(216, 181, 99, 0.36);
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.64);
+  --text-dim: rgba(255, 255, 255, 0.45);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app-container {
+  max-width: 680px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Верхняя шапка, переключатель языка, Instagram, Rent/Sale и фильтры */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(14, 16, 19, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.brand-row {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.brand-subtitle {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 3px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  line-height: 1.15;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.ig-pill-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--gold-border);
+  background: var(--gold-soft);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.ig-pill-btn:active {
+  border-color: var(--gold-border);
+  background: var(--gold-soft);
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.lang-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: 32px;
+  height: 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: background 0.18s ease, opacity 0.18s ease;
+}
+
+.lang-btn.active {
+  background: var(--bg-elevated);
+  opacity: 1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.deal-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: var(--bg-surface);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 12px;
+}
+
+.deal-tab {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.deal-tab.active {
+  background: var(--bg-elevated);
+  color: var(--gold-bright);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.tab-count {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.deal-tab.active .tab-count {
+  background: var(--gold-soft);
+  color: var(--gold-bright);
+}
+
+/* Горизонтальная лента локаций */
+.location-filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.location-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-chip {
+  appearance: none;
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.filter-chip.active {
+  background: var(--gold-soft);
+  border-color: var(--gold-border);
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+
+/* Лента карточек объектов */
+.catalog-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 48px 20px;
+  background: var(--bg-surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+}
+
+.property-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+  transition: transform 0.16s ease, border-color 0.16s ease;
+}
+
+.property-card:active {
+  transform: scale(0.985);
+  border-color: var(--gold-border);
+}
+
+.media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: radial-gradient(circle at 25% 25%, #232a38 0%, #12151c 100%);
+  overflow: hidden;
+}
+
+.card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.location-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--gold-bright);
+  background: rgba(14, 16, 19, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.card-body {
+  padding: 14px 16px 16px;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 17.5px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.card-price {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold-bright);
+  white-space: nowrap;
+}
+
+.card-tagline {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Модальная шторка детального просмотра объекта */
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.detail-overlay.open {
+  display: flex;
+}
+
+.detail-sheet {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  max-height: 94vh;
+  max-height: 94dvh;
+  background: var(--bg-main);
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 22px 22px 0 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.close-btn {
+  position: sticky;
+  top: 14px;
+  float: right;
+  margin: 14px 14px -48px 0;
+  z-index: 30;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(14, 16, 19, 0.78);
+  color: var(--text-main);
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.detail-video-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #0a0c0f;
+  overflow: hidden;
+}
+
+.detail-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-body {
+  padding: 20px 18px calc(28px + env(safe-area-inset-bottom, 0px));
+}
+
+.detail-location {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 6px;
+}
+
+.detail-title {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.detail-price {
+  font-size: 18.5px;
+  font-weight: 600;
+  color: var(--gold-bright);
+  margin-bottom: 14px;
+}
+
+.detail-summary {
+  margin: 0 0 18px;
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.spec-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 11px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.spec-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.spec-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-pdf {
+  appearance: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-bright);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pdf-tag {
+  flex-shrink: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(216, 181, 99, 0.2);
+  color: var(--gold-bright);
+}
+
+.btn-contact {
+  appearance: none;
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #eccb77 0%, #c79c3e 100%);
+  color: #111317;
+  font-size: 15.5px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(199, 156, 62, 0.28);
+}
+
+/* Карточка Instagram внизу каталога */
+.ig-footer-wrap {
+  padding: 0 16px 8px;
+}
+
+.ig-footer-card {
+  appearance: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(216, 181, 99, 0.14) 0%, rgba(22, 26, 33, 0.96) 100%);
+  border: 1px solid var(--gold-border);
+  text-align: left;
+  cursor: pointer;
+}
+
+.ig-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ig-footer-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-footer-text {
+  min-width: 0;
+}
+
+.ig-footer-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ig-footer-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.ig-footer-cta {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(216, 181, 99, 0.2);
+  color: var(--gold-bright);
+}
+
+.btn-share {
+  appearance: none;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.btn-share.copied {
+  border-color: var(--gold-border);
+  background: var(--gold-soft);
+  color: var(--gold-bright);
+}
+
+  </style>
   <style>
     .pdf-overlay {
       position: fixed;
@@ -115,6 +720,7 @@
 </head>
 <body>
   <div class="app-container">
+    <!-- Шапка, переключатель языка EN/RU, кнопка Instagram и Rent / Sale -->
     <header class="app-header">
       <div class="header-top-row">
         <div class="brand-row">
@@ -148,11 +754,14 @@
         </button>
       </div>
 
+      <!-- Горизонтальные фильтры локаций -->
       <nav class="location-filters" id="location-filters" aria-label="Locations"></nav>
     </header>
 
+    <!-- Лента карточек -->
     <main class="catalog-feed" id="catalog-feed"></main>
 
+    <!-- Карточка перехода в Instagram внизу каталога -->
     <section class="ig-footer-wrap">
       <button class="ig-footer-card" id="ig-footer-card" type="button">
         <div class="ig-footer-left">
@@ -173,6 +782,7 @@
     </section>
   </div>
 
+  <!-- Экран детального просмотра объекта -->
   <div class="detail-overlay" id="detail-overlay" aria-hidden="true">
     <div class="detail-sheet" id="detail-sheet">
       <button class="close-btn" id="detail-close" type="button" aria-label="Close">✕</button>
@@ -180,6 +790,7 @@
     </div>
   </div>
 
+  <!-- Встроенный экран чтения PDF с фиксированной кнопкой возврата -->
   <div class="pdf-overlay" id="pdf-overlay" aria-hidden="true">
     <div class="pdf-topbar">
       <button class="pdf-nav-btn" id="pdf-back-btn" type="button">← Back</button>
@@ -198,6 +809,736 @@
     </div>
   </div>
 
-  <script src="./app.js?v=2"></script>
+  <script>
+const tg = window.Telegram?.WebApp;
+
+const CONFIG = {
+  // Рабочий Telegram username без символа @
+  MANAGER_TELEGRAM: "FAMILIAHOLIDAY",
+  // Ссылка на ваш профиль Instagram (вставьте ваш @username вместо заглушки)
+  INSTAGRAM_URL: "https://www.instagram.com/familiaholiday/",
+  BOT_APP_URL: "https://t.me/PhuketVillasCondo_bot/catalog",
+  LOCATIONS: [
+    "All",
+    "Nai Harn / Rawai",
+    "Chalong / Central",
+    "Surin / Bangthao",
+    "Nai Yang",
+    "Royal Phuket Marina",
+    "Catamaran / Yachts"
+  ]
+};
+
+const I18N = {
+  en: {
+    brandSubtitle: "PHUKET PRIVATE PORTFOLIO",
+    brandTitle: "Villas & Yachts",
+    rent: "Rent",
+    sale: "Sale",
+    dealRent: "RENT",
+    dealSale: "SALE",
+    empty: "No listings in this category right now.",
+    loadError: "Unable to load catalog data. Please try again.",
+    readPdf: "Read PDF",
+    contactBtn: "Request Details in Telegram",
+    shareProperty: "🔗 Share / Copy Client Link",
+    copied: "✓ Link copied!",
+    pdfBack: "← Back",
+    pdfSave: "⬇ Save",
+    pdfLoading: "Loading brochure...",
+    pdfLoadingPages: "Loading presentation pages...",
+    pdfError: "Could not load PDF inside viewer.",
+    pdfFallback: "⬇ Download / Open PDF",
+    pdfNoModule: "Preview module unavailable.",
+    pdfOpenExt: "Open PDF Externally",
+    igFooterTitle: "Instagram • @familiaholiday",
+    igFooterSub: "Videos, stories & daily Phuket updates",
+    igFooterCta: "Open ↗",
+    locations: {
+      "All": "All",
+      "Nai Harn / Rawai": "Nai Harn / Rawai",
+      "Chalong / Central": "Chalong / Central",
+      "Surin / Bangthao": "Surin / Bangthao",
+      "Nai Yang": "Nai Yang",
+      "Royal Phuket Marina": "Royal Phuket Marina",
+      "Catamaran / Yachts": "Catamaran / Yachts"
+    }
+  },
+  ru: {
+    brandSubtitle: "ЧАСТНАЯ КОЛЛЕКЦИЯ ПХУКЕТ",
+    brandTitle: "Виллы и яхты",
+    rent: "Аренда",
+    sale: "Продажа",
+    dealRent: "АРЕНДА",
+    dealSale: "ПРОДАЖА",
+    empty: "В этой категории пока нет объектов.",
+    loadError: "Не удалось загрузить каталог. Попробуйте еще раз.",
+    readPdf: "Открыть PDF",
+    contactBtn: "Уточнить детали в Telegram",
+    shareProperty: "🔗 Отправить / скопировать ссылку",
+    copied: "✓ Ссылка скопирована!",
+    pdfBack: "← Назад",
+    pdfSave: "⬇ Скачать",
+    pdfLoading: "Загрузка брошюры...",
+    pdfLoadingPages: "Загрузка страниц презентации...",
+    pdfError: "Не удалось открыть PDF во встроенном окне.",
+    pdfFallback: "⬇ Скачать / Открыть PDF",
+    pdfNoModule: "Модуль просмотра недоступен.",
+    pdfOpenExt: "Открыть PDF в браузере",
+    igFooterTitle: "Наш Instagram • @familiaholiday",
+    igFooterSub: "Видеообзоры, сторис и новинки Пхукета",
+    igFooterCta: "Открыть ↗",
+    locations: {
+      "All": "Все",
+      "Nai Harn / Rawai": "Най Харн / Раваи",
+      "Chalong / Central": "Чалонг / Центр",
+      "Surin / Bangthao": "Сурин / Бангтао",
+      "Nai Yang": "Най Янг",
+      "Royal Phuket Marina": "Royal Phuket Marina",
+      "Catamaran / Yachts": "Катамараны / Яхты"
+    }
+  }
+};
+
+function detectInitialLang() {
+  try {
+    const saved = localStorage.getItem("phuket_lang");
+    if (saved === "ru" || saved === "en") return saved;
+  } catch (_) {}
+  const tgLang = tg?.initDataUnsafe?.user?.language_code || navigator.language || "en";
+  return tgLang.toLowerCase().startsWith("ru") ? "ru" : "en";
+}
+
+const state = {
+  lang: detectInitialLang(),
+  items: [],
+  activeDeal: "rent",      // 'rent' | 'sale'
+  activeLocation: "All",
+  selectedItem: null,
+  pdfOpen: false,
+  activePdfUrl: "",
+  activePdfName: ""
+};
+
+let videoObserver = null;
+let activePdfRenderToken = 0;
+let activeBlobUrls = [];
+const ZOOM_LEVELS = [100, 160, 220];
+let pdfZoomIdx = 0;
+
+function t(key) {
+  return I18N[state.lang]?.[key] ?? I18N.en[key] ?? key;
+}
+
+function tLoc(loc) {
+  return I18N[state.lang]?.locations?.[loc] ?? loc;
+}
+
+function locField(item, field) {
+  if (state.lang === "ru" && item[`${field}_ru`]) {
+    return item[`${field}_ru`];
+  }
+  return item[field];
+}
+
+// Настройка воркера PDF.js через Blob для стабильной работы в iOS/Android WebView
+if (window.pdfjsLib) {
+  try {
+    const workerBlob = new Blob(
+      ['importScripts("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js");'],
+      { type: "application/javascript" }
+    );
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(workerBlob);
+  } catch (_) {
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+}
+
+// Безопасный вызов тактильного отклика Telegram
+function haptic(type = "light") {
+  if (!tg?.HapticFeedback) return;
+  if (type === "selection") {
+    tg.HapticFeedback.selectionChanged();
+  } else {
+    tg.HapticFeedback.impactOccurred(type);
+  }
+}
+
+// Инициализация Telegram Mini App
+function initTelegram() {
+  if (!tg) return;
+  tg.ready();
+  tg.expand();
+  if (tg.setHeaderColor) tg.setHeaderColor("#0e1013");
+  if (tg.setBackgroundColor) tg.setBackgroundColor("#0e1013");
+
+  tg.BackButton.onClick(() => {
+    if (state.pdfOpen) {
+      closePdfViewer();
+    } else {
+      closeDetail();
+    }
+  });
+}
+
+function applyLanguageUI() {
+  document.documentElement.lang = state.lang;
+  document.getElementById("brand-subtitle").textContent = t("brandSubtitle");
+  document.getElementById("brand-title").textContent = t("brandTitle");
+  document.getElementById("label-rent").textContent = t("rent");
+  document.getElementById("label-sale").textContent = t("sale");
+  document.getElementById("pdf-back-btn").textContent = t("pdfBack");
+  document.getElementById("pdf-download-btn").textContent = t("pdfSave");
+  document.getElementById("ig-footer-title").textContent = t("igFooterTitle");
+  document.getElementById("ig-footer-sub").textContent = t("igFooterSub");
+  document.getElementById("ig-footer-cta").textContent = t("igFooterCta");
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === state.lang);
+  });
+
+  renderFilters();
+  renderFeed();
+
+  if (state.selectedItem && document.getElementById("detail-overlay").classList.contains("open")) {
+    openDetail(state.selectedItem, true);
+  }
+}
+
+function setLanguage(lang) {
+  if (state.lang === lang) return;
+  haptic("selection");
+  state.lang = lang;
+  try {
+    localStorage.setItem("phuket_lang", lang);
+  } catch (_) {}
+  applyLanguageUI();
+}
+
+// Загрузка базы объектов
+async function loadCatalog() {
+  try {
+    const res = await fetch(`./data.json?v=${Date.now()}`);
+    const data = await res.json();
+    state.items = data.items || [];
+    updateDealCounts();
+    const startParam = tg?.initDataUnsafe?.start_param || new URLSearchParams(window.location.search).get("startapp");
+    if (startParam) {
+      const target = state.items.find(i => i.id === startParam);
+      if (target) {
+        state.activeDeal = target.dealType;
+        document.querySelectorAll(".deal-tab").forEach(tab => {
+          tab.classList.toggle("active", tab.dataset.deal === target.dealType);
+        });
+      }
+    }
+    applyLanguageUI();
+    if (startParam) {
+      const target = state.items.find(i => i.id === startParam);
+      if (target) openDetail(target, true);
+    }
+  } catch (err) {
+    document.getElementById("catalog-feed").innerHTML =
+      `<div class="empty-state">${t("loadError")}</div>`;
+    console.error("Catalog load error:", err);
+  }
+}
+
+function updateDealCounts() {
+  const rentCount = state.items.filter(i => i.dealType === "rent").length;
+  const saleCount = state.items.filter(i => i.dealType === "sale").length;
+  document.getElementById("count-rent").textContent = rentCount;
+  document.getElementById("count-sale").textContent = saleCount;
+}
+
+function renderFilters() {
+  const container = document.getElementById("location-filters");
+  container.innerHTML = CONFIG.LOCATIONS.map(loc => `
+    <button
+      type="button"
+      class="filter-chip ${state.activeLocation === loc ? "active" : ""}"
+      data-location="${loc}"
+    >${tLoc(loc)}</button>
+  `).join("");
+
+  container.querySelectorAll(".filter-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const loc = btn.dataset.location;
+      if (state.activeLocation === loc) return;
+      haptic("selection");
+      state.activeLocation = loc;
+      renderFilters();
+      renderFeed();
+    });
+  });
+}
+
+function setupVideoObserver() {
+  if (videoObserver) videoObserver.disconnect();
+
+  videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.muted = true;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  document.querySelectorAll(".card-video").forEach(v => videoObserver.observe(v));
+}
+
+function renderFeed() {
+  const feed = document.getElementById("catalog-feed");
+  const filtered = state.items.filter(item => {
+    const matchDeal = item.dealType === state.activeDeal;
+    const matchLoc = state.activeLocation === "All" || item.location === state.activeLocation;
+    return matchDeal && matchLoc;
+  });
+
+  if (!filtered.length) {
+    feed.innerHTML = `<div class="empty-state">${t("empty")}</div>`;
+    return;
+  }
+
+  feed.innerHTML = filtered.map(item => `
+    <article class="property-card" data-id="${item.id}">
+      <div class="media-wrap">
+        <video
+          class="card-video"
+          src="${item.teaserVideo || ""}"
+          poster="${item.poster || ""}"
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="metadata"
+        ></video>
+        <span class="location-badge">${tLoc(item.location)}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <h2 class="card-title">${locField(item, "title")}</h2>
+          <span class="card-price">${locField(item, "price")}</span>
+        </div>
+        <p class="card-tagline">${locField(item, "tagline")}</p>
+      </div>
+    </article>
+  `).join("");
+
+  feed.querySelectorAll(".property-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const selected = state.items.find(i => i.id === card.dataset.id);
+      if (selected) openDetail(selected);
+    });
+  });
+
+  setupVideoObserver();
+}
+
+// Экран детальной карточки
+function openDetail(item, skipHaptic = false) {
+  if (!skipHaptic) haptic("medium");
+  state.selectedItem = item;
+
+  // Ставим фоновую ленту на паузу
+  document.querySelectorAll(".card-video").forEach(v => v.pause());
+
+  const specsList = (state.lang === "ru" && item.specs_ru) ? item.specs_ru : (item.specs || []);
+  const specsHtml = specsList.map(spec => `
+    <div class="spec-box">
+      <span class="spec-label">${spec.label}</span>
+      <span class="spec-value">${spec.value}</span>
+    </div>
+  `).join("");
+
+  const pdfsHtml = (item.pdfs || []).map((pdf, idx) => `
+    <button type="button" class="btn-pdf" data-pdf-idx="${idx}">
+      <span>📄 ${(state.lang === "ru" && pdf.label_ru) ? pdf.label_ru : pdf.label}</span>
+      <span class="pdf-tag">${t("readPdf")}</span>
+    </button>
+  `).join("");
+
+  const videoSrc = item.overviewVideo || item.teaserVideo || "";
+  const dealText = item.dealType === "rent" ? t("dealRent") : t("dealSale");
+  const content = document.getElementById("detail-content");
+  content.innerHTML = `
+    <div class="detail-video-wrap" id="detail-media-wrap">
+      <video
+        class="detail-video"
+        id="detail-video-el"
+        src="${videoSrc}"
+        poster="${item.poster || ""}"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        controls
+      ></video>
+    </div>
+    <div class="detail-body">
+      <div class="detail-location">${tLoc(item.location)} • ${dealText}</div>
+      <h2 class="detail-title">${locField(item, "title")}</h2>
+      <div class="detail-price">${locField(item, "price")}</div>
+      <p class="detail-summary">${locField(item, "summary")}</p>
+
+      <div class="specs-grid">${specsHtml}</div>
+
+      <div class="actions-stack">
+        ${pdfsHtml}
+        <button type="button" class="btn-share" id="btn-share-item">
+          ${t("shareProperty")}
+        </button>
+        <button type="button" class="btn-contact" id="btn-direct-tg">
+          ${t("contactBtn")}
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Скрываем пустой плеер с ошибкой на iOS, если видео и постер еще не загружены
+  const detailVideoEl = document.getElementById("detail-video-el");
+  if (detailVideoEl) {
+    detailVideoEl.addEventListener("error", () => {
+      if (item.poster) {
+        detailVideoEl.removeAttribute("controls");
+      } else {
+        const wrap = document.getElementById("detail-media-wrap");
+        if (wrap) wrap.style.display = "none";
+      }
+    });
+  }
+
+  // Открываем встроенный просмотрщик PDF без выхода из витрины
+  content.querySelectorAll(".btn-pdf").forEach(btn => {
+    btn.addEventListener("click", () => {
+      haptic("light");
+      const pdfObj = item.pdfs[Number(btn.dataset.pdfIdx)];
+      const label = (state.lang === "ru" && pdfObj.label_ru) ? pdfObj.label_ru : pdfObj.label;
+      openPdfViewer(pdfObj.url, label);
+    });
+  });
+
+  // Кнопка «Поделиться / Скопировать ссылку» для клиента
+  const shareBtn = document.getElementById("btn-share-item");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", () => {
+      const shareUrl = `${CONFIG.BOT_APP_URL}?startapp=${encodeURIComponent(item.id)}`;
+      shareOrCopyLink(shareUrl, locField(item, "title"), shareBtn);
+    });
+  }
+
+  // Прямая связь с автоподстановкой названия объекта
+  document.getElementById("btn-direct-tg").addEventListener("click", () => {
+    haptic("medium");
+    contactManager(item);
+  });
+
+  const overlay = document.getElementById("detail-overlay");
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  if (tg?.BackButton) tg.BackButton.show();
+}
+
+function closeDetail() {
+  if (state.pdfOpen) {
+    closePdfViewer();
+  }
+  haptic("light");
+  const overlay = document.getElementById("detail-overlay");
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+
+  // Останавливаем видео детального экрана
+  const detailVideo = document.querySelector(".detail-video");
+  if (detailVideo) detailVideo.pause();
+
+  if (tg?.BackButton) tg.BackButton.hide();
+  setupVideoObserver();
+}
+
+function clearPdfBlobs() {
+  activeBlobUrls.forEach(u => URL.revokeObjectURL(u));
+  activeBlobUrls = [];
+}
+
+// Встроенный полноэкранный просмотр PDF внутри Mini App
+async function openPdfViewer(rawUrl, titleLabel) {
+  const absoluteUrl = new URL(rawUrl, window.location.href).href;
+  const rawName = decodeURIComponent(absoluteUrl.split("/").pop() || "Presentation.pdf");
+
+  state.pdfOpen = true;
+  state.activePdfUrl = absoluteUrl;
+  state.activePdfName = rawName.endsWith(".pdf") ? rawName : `${rawName}.pdf`;
+  pdfZoomIdx = 0;
+
+  const pdfOverlay = document.getElementById("pdf-overlay");
+  const pagesInner = document.getElementById("pdf-pages-inner");
+  const titleEl = document.getElementById("pdf-doc-title");
+  const statusEl = document.getElementById("pdf-page-status");
+  const zoomBtn = document.getElementById("pdf-zoom-btn");
+
+  titleEl.textContent = titleLabel || "Presentation";
+  statusEl.textContent = t("pdfLoading");
+  zoomBtn.textContent = "1x";
+  pagesInner.style.width = "100%";
+  clearPdfBlobs();
+  pagesInner.innerHTML = `<div class="pdf-loading-msg">${t("pdfLoadingPages")}</div>`;
+
+  pdfOverlay.classList.add("open");
+  pdfOverlay.setAttribute("aria-hidden", "false");
+
+  if (tg?.disableVerticalSwipes) tg.disableVerticalSwipes();
+  if (tg?.BackButton) tg.BackButton.show();
+
+  const currentToken = ++activePdfRenderToken;
+
+  if (!window.pdfjsLib) {
+    pagesInner.innerHTML = `
+      <div class="pdf-loading-msg">
+        ${t("pdfNoModule")}<br/><br/>
+        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">${t("pdfOpenExt")}</button>
+      </div>
+    `;
+    document.getElementById("pdf-fallback-open")?.addEventListener("click", saveOrOpenPdf);
+    return;
+  }
+
+  try {
+    const loadingTask = window.pdfjsLib.getDocument({
+      url: absoluteUrl,
+      cMapUrl: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/",
+      cMapPacked: true
+    });
+    const pdfDoc = await loadingTask.promise;
+    if (currentToken !== activePdfRenderToken) return;
+
+    const totalPages = pdfDoc.numPages;
+    pagesInner.innerHTML = "";
+    statusEl.textContent = `1 / ${totalPages}`;
+
+    // Рендерим постранично в JPEG-картинки, чтобы не превышать лимит памяти Canvas на iPhone в длинных PDF
+    for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+      if (currentToken !== activePdfRenderToken) return;
+      statusEl.textContent =
+        pageNum < totalPages
+          ? `${pageNum} / ${totalPages}...`
+          : (state.lang === "ru" ? `${totalPages} стр.` : `${totalPages} ${totalPages === 1 ? "page" : "pages"}`);
+
+      const page = await pdfDoc.getPage(pageNum);
+      if (currentToken !== activePdfRenderToken) return;
+
+      const baseViewport = page.getViewport({ scale: 1 });
+      const targetWidth = Math.min(window.innerWidth * 2.2, 1600);
+      const renderScale = Math.max(1.5, targetWidth / baseViewport.width);
+      const viewport = page.getViewport({ scale: renderScale });
+
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d", { alpha: false });
+      canvas.width = Math.floor(viewport.width);
+      canvas.height = Math.floor(viewport.height);
+
+      await page.render({ canvasContext: ctx, viewport }).promise;
+
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.92));
+      // Освобождаем память Canvas сразу после рендера страницы
+      canvas.width = 0;
+      canvas.height = 0;
+
+      if (currentToken !== activePdfRenderToken) return;
+
+      if (blob) {
+        const blobUrl = URL.createObjectURL(blob);
+        activeBlobUrls.push(blobUrl);
+
+        const card = document.createElement("div");
+        card.className = "pdf-page-card";
+        const img = document.createElement("img");
+        img.className = "pdf-page-img";
+        img.src = blobUrl;
+        img.alt = `Page ${pageNum}`;
+        card.appendChild(img);
+        pagesInner.appendChild(card);
+      }
+    }
+  } catch (err) {
+    console.error("PDF viewer error:", err);
+    if (currentToken !== activePdfRenderToken) return;
+    statusEl.textContent = state.lang === "ru" ? "Нажмите Скачать" : "Tap Save to view";
+    pagesInner.innerHTML = `
+      <div class="pdf-loading-msg">
+        ${t("pdfError")}<br/><br/>
+        <button type="button" class="pdf-nav-btn" id="pdf-fallback-open">${t("pdfFallback")}</button>
+      </div>
+    `;
+    document.getElementById("pdf-fallback-open")?.addEventListener("click", saveOrOpenPdf);
+  }
+}
+
+function closePdfViewer() {
+  if (!state.pdfOpen) return;
+  haptic("light");
+  state.pdfOpen = false;
+  activePdfRenderToken++;
+
+  const pdfOverlay = document.getElementById("pdf-overlay");
+  pdfOverlay.classList.remove("open");
+  pdfOverlay.setAttribute("aria-hidden", "true");
+
+  document.getElementById("pdf-pages-inner").innerHTML = "";
+  clearPdfBlobs();
+
+  if (tg?.enableVerticalSwipes) tg.enableVerticalSwipes();
+
+  // Если карточка объекта под низом открыта — оставляем кнопку Back активной для возврата в каталог
+  if (state.selectedItem && document.getElementById("detail-overlay").classList.contains("open")) {
+    if (tg?.BackButton) tg.BackButton.show();
+  } else if (tg?.BackButton) {
+    tg.BackButton.hide();
+  }
+}
+
+function togglePdfZoom() {
+  haptic("selection");
+  pdfZoomIdx = (pdfZoomIdx + 1) % ZOOM_LEVELS.length;
+  const pct = ZOOM_LEVELS[pdfZoomIdx];
+  const inner = document.getElementById("pdf-pages-inner");
+  const zoomBtn = document.getElementById("pdf-zoom-btn");
+
+  inner.style.width = `${pct}%`;
+  inner.style.maxWidth = pct === 100 ? "900px" : "none";
+  zoomBtn.textContent = pct === 100 ? "1x" : pct === 160 ? "1.6x" : "2.2x";
+}
+
+async function copyToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (_) {}
+  }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch (_) {
+    return false;
+  }
+}
+
+async function shareOrCopyLink(url, title, btnEl) {
+  if (!url) return;
+  haptic("medium");
+  const copied = await copyToClipboard(url);
+  if (copied && btnEl) {
+    const prev = btnEl.textContent;
+    btnEl.textContent = btnEl.id === "pdf-share-btn" ? "✓" : t("copied");
+    btnEl.classList.add("copied");
+    setTimeout(() => {
+      btnEl.textContent = prev;
+      btnEl.classList.remove("copied");
+    }, 2000);
+  }
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: title || document.title, url });
+    } catch (_) {}
+  }
+}
+
+function saveOrOpenPdf() {
+  haptic("medium");
+  if (!state.activePdfUrl) return;
+  if (tg?.downloadFile) {
+    tg.downloadFile({
+      url: state.activePdfUrl,
+      file_name: state.activePdfName
+    });
+  } else if (tg?.openLink) {
+    tg.openLink(state.activePdfUrl, { try_instant_view: false });
+  } else {
+    window.open(state.activePdfUrl, "_blank", "noopener");
+  }
+}
+
+function openInstagram() {
+  haptic("light");
+  if (tg?.openLink) {
+    tg.openLink(CONFIG.INSTAGRAM_URL, { try_instant_view: false });
+  } else {
+    window.open(CONFIG.INSTAGRAM_URL, "_blank", "noopener");
+  }
+}
+
+// Открытие чата в Telegram с готовым текстом запроса
+function contactManager(item) {
+  const title = locField(item, "title");
+  const price = locField(item, "price");
+  const loc = tLoc(item.location);
+
+  let message;
+  if (state.lang === "ru") {
+    const dealLabel = item.dealType === "rent" ? "Аренда / Чартер" : "Покупка";
+    message = `Здравствуйте! Интересует объект "${title}" (${dealLabel}, ${loc} — ${price}). Подскажите, пожалуйста, доступность и детали.`;
+  } else {
+    const dealLabel = item.dealType === "rent" ? "Rent / Charter" : "Purchase";
+    message = `Hello! I'm interested in "${title}" (${dealLabel}, ${loc} — ${price}). Please share availability and details.`;
+  }
+
+  const tgUrl = `https://t.me/${CONFIG.MANAGER_TELEGRAM}?text=${encodeURIComponent(message)}`;
+
+  if (tg?.openTelegramLink) {
+    tg.openTelegramLink(tgUrl);
+  } else {
+    window.open(tgUrl, "_blank", "noopener");
+  }
+}
+
+// Слушатели верхнего переключателя Rent / Sale
+document.querySelectorAll(".deal-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    const deal = tab.dataset.deal;
+    if (state.activeDeal === deal) return;
+    haptic("selection");
+    state.activeDeal = deal;
+
+    document.querySelectorAll(".deal-tab").forEach(t => t.classList.toggle("active", t === tab));
+    renderFeed();
+  });
+});
+
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+});
+
+document.getElementById("btn-instagram").addEventListener("click", openInstagram);
+document.getElementById("ig-footer-card").addEventListener("click", openInstagram);
+document.getElementById("detail-close").addEventListener("click", closeDetail);
+document.getElementById("pdf-back-btn").addEventListener("click", closePdfViewer);
+document.getElementById("pdf-share-btn").addEventListener("click", (e) => {
+  shareOrCopyLink(state.activePdfUrl, state.activePdfName, e.currentTarget);
+});
+document.getElementById("pdf-zoom-btn").addEventListener("click", togglePdfZoom);
+document.getElementById("pdf-download-btn").addEventListener("click", saveOrOpenPdf);
+
+initTelegram();
+loadCatalog();
+
+  </script>
 </body>
 </html>
