@@ -11,6 +11,7 @@ const CONFIG = {
     "Chalong / Central",
     "Surin / Bangthao",
     "Nai Yang",
+    "Royal Phuket Marina",
     "Catamaran / Yachts"
   ]
 };
@@ -44,6 +45,7 @@ const I18N = {
       "Chalong / Central": "Chalong / Central",
       "Surin / Bangthao": "Surin / Bangthao",
       "Nai Yang": "Nai Yang",
+      "Royal Phuket Marina": "Royal Phuket Marina",
       "Catamaran / Yachts": "Catamaran / Yachts"
     }
   },
@@ -75,6 +77,7 @@ const I18N = {
       "Chalong / Central": "Чалонг / Центр",
       "Surin / Bangthao": "Сурин / Бангтао",
       "Nai Yang": "Най Янг",
+      "Royal Phuket Marina": "Royal Phuket Marina",
       "Catamaran / Yachts": "Катамараны / Яхты"
     }
   }
