@@ -1,9 +1,7 @@
 const tg = window.Telegram?.WebApp;
 
 const CONFIG = {
-  // Рабочий Telegram username без символа @
   MANAGER_TELEGRAM: "FAMILIAHOLIDAY",
-  // Ссылка на ваш профиль Instagram (вставьте ваш @username вместо заглушки)
   INSTAGRAM_URL: "https://www.instagram.com/familiaholiday/",
   BOT_APP_URL: "https://t.me/PhuketVillasCondo_bot/catalog",
   LOCATIONS: [
@@ -100,7 +98,7 @@ function detectInitialLang() {
 const state = {
   lang: detectInitialLang(),
   items: [],
-  activeDeal: "rent",      // 'rent' | 'sale'
+  activeDeal: "rent",
   activeLocation: "All",
   selectedItem: null,
   pdfOpen: false,
@@ -129,7 +127,6 @@ function locField(item, field) {
   return item[field];
 }
 
-// Настройка воркера PDF.js через Blob для стабильной работы в iOS/Android WebView
 if (window.pdfjsLib) {
   try {
     const workerBlob = new Blob(
@@ -143,7 +140,6 @@ if (window.pdfjsLib) {
   }
 }
 
-// Безопасный вызов тактильного отклика Telegram
 function haptic(type = "light") {
   if (!tg?.HapticFeedback) return;
   if (type === "selection") {
@@ -153,7 +149,6 @@ function haptic(type = "light") {
   }
 }
 
-// Инициализация Telegram Mini App
 function initTelegram() {
   if (!tg) return;
   tg.ready();
@@ -204,26 +199,25 @@ function setLanguage(lang) {
   applyLanguageUI();
 }
 
-// Загрузка базы объектов
 async function loadCatalog() {
   try {
-    const res = await fetch(`./data.json?v=${[invalid URL]()}`);
+    const res = await fetch(`./data.json?v=${Date["now"]()}`);
     const data = await res.json();
     state.items = data.items || [];
     updateDealCounts();
-    const startParam = tg?.initDataUnsafe?.start_param || new URLSearchParams([invalid URL]).get("startapp");
+    const startParam = tg?.initDataUnsafe?.start_param || new URLSearchParams(window["location"]["search"]).get("startapp");
     if (startParam) {
-      const target = state.items.find(i => [invalid URL] === startParam);
+      const target = state.items.find(i => i["id"] === startParam);
       if (target) {
         state.activeDeal = target.dealType;
         document.querySelectorAll(".deal-tab").forEach(tab => {
-          tab.classList.toggle("active", [invalid URL] === target.dealType);
+          tab.classList.toggle("active", tab["dataset"]["deal"] === target.dealType);
         });
       }
     }
     applyLanguageUI();
     if (startParam) {
-      const target = state.items.find(i => [invalid URL] === startParam);
+      const target = state.items.find(i => i["id"] === startParam);
       if (target) openDetail(target, true);
     }
   } catch (err) {
@@ -242,7 +236,7 @@ function updateDealCounts() {
 
 function renderFilters() {
   const container = document.getElementById("location-filters");
-  container.innerHTML = [invalid URL](loc => `
+  container.innerHTML = CONFIG["LOCATIONS"]["map"](loc => `
     <button
       type="button"
       class="filter-chip ${state.activeLocation === loc ? "active" : ""}"
@@ -267,10 +261,10 @@ function setupVideoObserver() {
 
   videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      const video = [invalid URL];
+      const video = entry["target"];
       if (entry.isIntersecting) {
         video.muted = true;
-        [invalid URL]().catch(() => {});
+        video["play"]().catch(() => {});
       } else {
         video.pause();
       }
@@ -283,7 +277,7 @@ function setupVideoObserver() {
 function renderFeed() {
   const feed = document.getElementById("catalog-feed");
   const filtered = state.items.filter(item => {
-    const matchDeal = item.dealType === state.activeDeal;
+    const matchDeal = item["dealType"] === state.activeDeal;
     const matchLoc = state.activeLocation === "All" || item.location === state.activeLocation;
     return matchDeal && matchLoc;
   });
@@ -293,8 +287,8 @@ function renderFeed() {
     return;
   }
 
-  feed.innerHTML = [invalid URL](item => `
-    <article class="property-card" data-id="${[invalid URL]}">
+  feed.innerHTML = filtered["map"](item => `
+    <article class="property-card" data-id="${item["id"]}">
       <div class="media-wrap">
         <video
           class="card-video"
@@ -320,7 +314,7 @@ function renderFeed() {
 
   feed.querySelectorAll(".property-card").forEach(card => {
     card.addEventListener("click", () => {
-      const selected = state.items.find(i => [invalid URL] === [invalid URL]);
+      const selected = state.items.find(i => i["id"] === card["dataset"]["id"]);
       if (selected) openDetail(selected);
     });
   });
@@ -328,16 +322,14 @@ function renderFeed() {
   setupVideoObserver();
 }
 
-// Экран детальной карточки
 function openDetail(item, skipHaptic = false) {
   if (!skipHaptic) haptic("medium");
   state.selectedItem = item;
 
-  // Ставим фоновую ленту на паузу
   document.querySelectorAll(".card-video").forEach(v => v.pause());
 
   const specsList = (state.lang === "ru" && item.specs_ru) ? item.specs_ru : (item.specs || []);
-  const specsHtml = [invalid URL](spec => `
+  const specsHtml = specsList["map"](spec => `
     <div class="spec-box">
       <span class="spec-label">${spec.label}</span>
       <span class="spec-value">${spec.value}</span>
@@ -352,7 +344,7 @@ function openDetail(item, skipHaptic = false) {
   `).join("");
 
   const videoSrc = item.overviewVideo || item.teaserVideo || "";
-  const dealText = item.dealType === "rent" ? t("dealRent") : t("dealSale");
+  const dealText = item["dealType"] === "rent" ? t("dealRent") : t("dealSale");
   const content = document.getElementById("detail-content");
   content.innerHTML = `
     <div class="detail-video-wrap" id="detail-media-wrap">
@@ -389,7 +381,6 @@ function openDetail(item, skipHaptic = false) {
     </div>
   `;
 
-  // Скрываем пустой плеер с ошибкой на iOS, если видео и постер еще не загружены
   const detailVideoEl = document.getElementById("detail-video-el");
   if (detailVideoEl) {
     detailVideoEl.addEventListener("error", () => {
@@ -402,7 +393,6 @@ function openDetail(item, skipHaptic = false) {
     });
   }
 
-  // Открываем встроенный просмотрщик PDF без выхода из витрины
   content.querySelectorAll(".btn-pdf").forEach(btn => {
     btn.addEventListener("click", () => {
       haptic("light");
@@ -412,16 +402,14 @@ function openDetail(item, skipHaptic = false) {
     });
   });
 
-  // Кнопка «Поделиться / Скопировать ссылку» для клиента
   const shareBtn = document.getElementById("btn-share-item");
   if (shareBtn) {
     shareBtn.addEventListener("click", () => {
-      const shareUrl = `${[invalid URL]_APP_URL}?startapp=${encodeURIComponent([invalid URL])}`;
+      const shareUrl = `${CONFIG["BOT_APP_URL"]}?startapp=${encodeURIComponent(item["id"])}`;
       shareOrCopyLink(shareUrl, locField(item, "title"), shareBtn);
     });
   }
 
-  // Прямая связь с автоподстановкой названия объекта
   document.getElementById("btn-direct-tg").addEventListener("click", () => {
     haptic("medium");
     contactManager(item);
@@ -432,7 +420,7 @@ function openDetail(item, skipHaptic = false) {
   overlay.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 
-  if (tg?.BackButton) [invalid URL]();
+  if (tg?.BackButton) tg.BackButton["show"]();
 }
 
 function closeDetail() {
@@ -445,7 +433,6 @@ function closeDetail() {
   overlay.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 
-  // Останавливаем видео детального экрана
   const detailVideo = document.querySelector(".detail-video");
   if (detailVideo) detailVideo.pause();
 
@@ -458,7 +445,6 @@ function clearPdfBlobs() {
   activeBlobUrls = [];
 }
 
-// Встроенный полноэкранный просмотр PDF внутри Mini App
 async function openPdfViewer(rawUrl, titleLabel) {
   const absoluteUrl = new URL(rawUrl, window.location.href).href;
   const rawName = decodeURIComponent(absoluteUrl.split("/").pop() || "Presentation.pdf");
@@ -485,7 +471,7 @@ async function openPdfViewer(rawUrl, titleLabel) {
   pdfOverlay.setAttribute("aria-hidden", "false");
 
   if (tg?.disableVerticalSwipes) tg.disableVerticalSwipes();
-  if (tg?.BackButton) [invalid URL]();
+  if (tg?.BackButton) tg.BackButton["show"]();
 
   const currentToken = ++activePdfRenderToken;
 
@@ -513,7 +499,6 @@ async function openPdfViewer(rawUrl, titleLabel) {
     pagesInner.innerHTML = "";
     statusEl.textContent = `1 / ${totalPages}`;
 
-    // Рендерим постранично в JPEG-картинки, чтобы не превышать лимит памяти Canvas на iPhone в длинных PDF
     for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
       if (currentToken !== activePdfRenderToken) return;
       statusEl.textContent =
@@ -537,7 +522,6 @@ async function openPdfViewer(rawUrl, titleLabel) {
       await page.render({ canvasContext: ctx, viewport }).promise;
 
       const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.92));
-      // Освобождаем память Canvas сразу после рендера страницы
       canvas.width = 0;
       canvas.height = 0;
 
@@ -586,9 +570,8 @@ function closePdfViewer() {
 
   if (tg?.enableVerticalSwipes) tg.enableVerticalSwipes();
 
-  // Если карточка объекта под низом открыта — оставляем кнопку Back активной для возврата в каталог
   if (state.selectedItem && document.getElementById("detail-overlay").classList.contains("open")) {
-    if (tg?.BackButton) [invalid URL]();
+    if (tg?.BackButton) tg.BackButton["show"]();
   } else if (tg?.BackButton) {
     tg.BackButton.hide();
   }
@@ -635,7 +618,7 @@ async function shareOrCopyLink(url, title, btnEl) {
   const copied = await copyToClipboard(url);
   if (copied && btnEl) {
     const prev = btnEl.textContent;
-    btnEl.textContent = [invalid URL] === "pdf-share-btn" ? "✓" : t("copied");
+    btnEl.textContent = btnEl["id"] === "pdf-share-btn" ? "✓" : t("copied");
     btnEl.classList.add("copied");
     setTimeout(() => {
       btnEl.textContent = prev;
@@ -660,7 +643,7 @@ function saveOrOpenPdf() {
   } else if (tg?.openLink) {
     tg.openLink(state.activePdfUrl, { try_instant_view: false });
   } else {
-    [invalid URL](state.activePdfUrl, "_blank", "noopener");
+    window["open"](state.activePdfUrl, "_blank", "noopener");
   }
 }
 
@@ -669,11 +652,10 @@ function openInstagram() {
   if (tg?.openLink) {
     tg.openLink(CONFIG.INSTAGRAM_URL, { try_instant_view: false });
   } else {
-    [invalid URL](CONFIG.INSTAGRAM_URL, "_blank", "noopener");
+    window["open"](CONFIG.INSTAGRAM_URL, "_blank", "noopener");
   }
 }
 
-// Открытие чата в Telegram с готовым текстом запроса
 function contactManager(item) {
   const title = locField(item, "title");
   const price = locField(item, "price");
@@ -681,26 +663,25 @@ function contactManager(item) {
 
   let message;
   if (state.lang === "ru") {
-    const dealLabel = [invalid URL]Type === "rent" ? "Аренда / Чартер" : "Покупка";
+    const dealLabel = item["dealType"] === "rent" ? "Аренда / Чартер" : "Покупка";
     message = `Здравствуйте! Интересует объект "${title}" (${dealLabel}, ${loc} — ${price}). Подскажите, пожалуйста, доступность и детали.`;
   } else {
-    const dealLabel = item.dealType === "rent" ? "Rent / Charter" : "Purchase";
+    const dealLabel = item["dealType"] === "rent" ? "Rent / Charter" : "Purchase";
     message = `Hello! I'm interested in "${title}" (${dealLabel}, ${loc} — ${price}). Please share availability and details.`;
   }
 
-  const tgUrl = `[invalid URL]`;
+  const tgUrl = "https://t.me/" + CONFIG.MANAGER_TELEGRAM + "?text=" + encodeURIComponent(message);
 
   if (tg?.openTelegramLink) {
     tg.openTelegramLink(tgUrl);
   } else {
-    [invalid URL](tgUrl, "_blank", "noopener");
+    window["open"](tgUrl, "_blank", "noopener");
   }
 }
 
-// Слушатели верхнего переключателя Rent / Sale
 document.querySelectorAll(".deal-tab").forEach(tab => {
   tab.addEventListener("click", () => {
-    const deal = [invalid URL];
+    const deal = tab["dataset"]["deal"];
     if (state.activeDeal === deal) return;
     haptic("selection");
     state.activeDeal = deal;
